@@ -1,0 +1,26 @@
+{
+  "name": "@tutorias/backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "db:migrate": "node scripts/migrate.js",
+    "test": "node --test --test-concurrency=1 tests/*.test.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "express-session": "^1.18.2",
+    "connect-pg-simple": "^10.0.0",
+    "argon2": "^0.44.0",
+    "helmet": "^8.1.0",
+    "express-rate-limit": "^8.1.0",
+    "zod": "^4.1.0",
+    "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.4"
+  }
+}

@@ -1,0 +1,531 @@
+
+--- PAGINA 1 ---
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Especificación de requisitos de 
+software 
+ 
+Proyecto: Desarrollo de una aplicación web para gestionar tutorías 
+académicas entre estudiantes universitarios 
+Revisión 1.0 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Septiembre de 2026 
+
+--- PAGINA 2 ---
+ 
+ 
+Ficha del documento 
+ 
+ 
+Fecha Revisión Autor Verificado dep. calidad. 
+28/09/26 1.0 Carlos Javier Toa Chávez Pendiente 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Documento validado por las partes en fecha: Pendiente 
+ 
+Por el cliente / usuarios Por el responsable del desarrollo 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+Fdo. D./Dña: Pendiente Fdo. D./Dña: Carlos Javier Toa Chávez 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGINA 3 ---
+ 
+Aplicación web de tutorías académicas 
+Especificación de requisitos de software 
+Rev. 1.0 
+Pág. 3 
+ 
+  Descripción de requisitos del software 
+ 
+Contenido 
+FICHA DEL DOCUMENTO 2 
+CONTENIDO 3 
+1 INTRODUCCIÓN 5 
+1.1 Propósito 5 
+1.2 Alcance 5 
+1.3 Personal involucrado 5 
+1.4 Definiciones, acrónimos y abreviaturas 5 
+1.5 Referencias 5 
+1.6 Resumen 5 
+2 DESCRIPCIÓN GENERAL 6 
+2.1 Perspectiva del producto 6 
+2.2 Funcionalidad del producto 6 
+2.3 Características de los usuarios 6 
+2.4 Restricciones 6 
+2.5 Suposiciones y dependencias 6 
+2.6 Evolución previsible del sistema 6 
+3 REQUISITOS ESPECÍFICOS 7 
+3.1 Requisitos comunes de los interfaces 7 
+3.1.1 Interfaces de usuario 7 
+3.1.2 Interfaces de hardware 7 
+3.1.3 Interfaces de software 7 
+3.1.4 Interfaces de comunicación 7 
+3.2 Requisitos funcionales 7 
+3.2.1 Registro de usuario 7 
+3.2.2 Autenticación de usuario 8 
+3.2.3 Gestión de perfil 8 
+3.2.4 Publicación de tutorías 8 
+3.2.5 Carga de horario académico en PDF 8 
+3.2.6 Confirmación del horario detectado 8 
+3.2.7 Gestión de disponibilidad 9 
+3.2.8 Búsqueda por asignatura 9 
+3.2.9 Recomendación de tutores compatibles 9 
+3.2.10 Solicitud de tutoría 9 
+3.2.11 Gestión de solicitudes de tutoría 9 
+
+--- PAGINA 4 ---
+ 
+Aplicación web de tutorías académicas 
+Especificación de requisitos de software 
+Rev. 1.0 
+Pág. 4 
+ 
+  Descripción de requisitos del software 
+ 
+3.2.12 Mensajería entre participantes 10 
+3.2.13 Consulta y gestión de sesiones 10 
+3.2.14 Administración básica 10 
+3.3 Requisitos no funcionales 10 
+3.3.1 Requisitos de rendimiento 10 
+3.3.2 Seguridad 10 
+3.3.3 Fiabilidad 10 
+3.3.4 Disponibilidad 11 
+3.3.5 Mantenibilidad 11 
+3.3.6 Portabilidad 11 
+3.4 Otros requisitos 11 
+4 APÉNDICES 11 
+
+--- PAGINA 5 ---
+ 
+Aplicación web de tutorías académicas 
+Especificación de requisitos de software 
+Rev. 1.0 
+Pág. 5 
+ 
+  Descripción de requisitos del software 
+ 
+ 
+1 Introducción 
+El presente documento contiene la Especificación de Requisitos de Software de una 
+aplicación web para gestionar tutorías académicas entre estudiantes universitarios. Define 
+de manera organizada las funciones que debe cumplir el sistema, sus interfaces, 
+restricciones y requisitos de calidad, con el fin de servir como base para el diseño, 
+desarrollo, pruebas y validación del producto. 
+1.1 Propósito 
+El propósito de este documento es establecer los requisitos funcionales y no funcionales  
+de la aplicación web de tutorías académicas. Está dirigido al responsable del desarrollo, 
+al docente de la asignatura y a los estudiantes que participen en la validación del 
+sistema. 
+1.2 Alcance 
+El producto será una aplicación web que conectará a estudiantes que necesitan apoyo 
+académico con estudiantes que ofrecen tutorías. Permitirá gestionar cuentas y perfiles, 
+publicar tutorías, cargar o registrar horarios, administrar disponibilidad, buscar apoyo por 
+asignatura, recomendar tutores considerando materia, coincidencia horaria y cercanía 
+cuando el usuario autorice su ubicación, solicitar y coordinar sesiones, comunicarse 
+entre participantes y administrar la información básica de la plataforma. La primera 
+versión no incluirá pagos integrados ni videollamadas propias. 
+1.3 Personal involucrado 
+Nombre Carlos Javier Toa Chávez 
+Rol Analista y desarrollador 
+Categoría profesional Estudiante de la Carrera de Software 
+Responsabilidades Levantamiento de requisitos, diseño, desarrollo, pruebas y 
+documentación. 
+Información de contacto Correo institucional ESPOCH 
+Aprobación Responsable principal / pendiente de revisión docente 
+1.4 Definiciones, acrónimos y abreviaturas 
+SRS/ERS: Especificación de Requisitos de Software. RF: requisito funcional. RNF: 
+requisito no funcional. Tutor: estudiante que ofrece apoyo académico. Solicitante: 
+estudiante que busca apoyo. Tutoría: sesión de apoyo académico entre estudiantes. 
+Disponibilidad: franjas horarias libres. Compatibilidad: coincidencia entre asignatura, 
+horario y, de forma opcional, cercanía. PDF: formato utilizado para cargar el horario 
+académico. UI/UX: interfaz y experiencia de usuario. 
+1.5 Referencias 
+Referencia Titulo Ruta Fecha Autor 
+REF-01 Anteproyecto del 
+trabajo de grado 
+Documento del 
+proyecto 
+22/09/2
+026 
+Carlos Javier 
+Toa Chávez 
+REF-02 Especificación de 
+casos de uso 
+Documento del 
+proyecto 
+25/09/2
+026 
+Carlos Javier 
+Toa Chávez 
+1.6 Resumen 
+El documento se divide en tres partes principales. La introducción presenta el propósito, 
+alcance y términos utilizados; la descripción general explica el contexto, funciones, 
+usuarios, restricciones y evolución prevista; y la sección de requisitos específicos detalla 
+
+--- PAGINA 6 ---
+ 
+Aplicación web de tutorías académicas 
+Especificación de requisitos de software 
+Rev. 1.0 
+Pág. 6 
+ 
+  Descripción de requisitos del software 
+ 
+las interfaces, los requisitos funcionales, los requisitos no funcionales y otros requisitos 
+necesarios para implementar y validar el sistema. 
+2 Descripción general 
+2.1 Perspectiva del producto 
+La aplicación será un producto web independiente, orientado inicialmente al entorno 
+universitario. Funcionará con una arquitectura cliente-servidor: el usuario accederá 
+desde un navegador, el frontend se desarrollará con React y Tailwind CSS, el backend 
+utilizará Node.js y la información se almacenará en PostgreSQL. El sistema no 
+reemplazará plataformas académicas institucionales; su finalidad será organizar tutorías 
+entre pares. 
+2.2 Funcionalidad del producto 
+Las funciones principales serán: registro e inicio de sesión; gestión de perfiles; 
+publicación de tutorías; carga del horario académico en PDF y confirmación de franjas 
+detectadas; registro de disponibilidad; búsqueda de tutores por asignatura; 
+recomendación por materia, horario y cercanía opcional; solicitud y gestión de tutorías; 
+mensajería entre participantes; consulta de sesiones; y administración básica de 
+usuarios y tutorías. 
+2.3 Características de los usuarios 
+Tipo de usuario Estudiante solicitante; estudiante tutor; administrador. 
+Formación Estudiantes universitarios; administrador con conocimientos 
+básicos de gestión del sistema. 
+Habilidades Uso básico de aplicaciones web y navegación. El tutor debe 
+conocer las asignaturas en las que ofrece apoyo. 
+Actividades Buscar u ofrecer tutorías, registrar disponibilidad, coordinar 
+sesiones, comunicarse y, en el caso del administrador, 
+supervisar información de la plataforma. 
+2.4 Restricciones 
+El sistema se desarrollará como aplicación web y requerirá conexión a internet y un 
+navegador moderno. El frontend utilizará React y Tailwind CSS, el backend Node.js y la 
+base de datos PostgreSQL. La primera versión se desarrollará en 16 semanas. La 
+ubicación será opcional. La lectura de horarios dependerá de la estructura y legibilidad 
+del PDF, por lo que el usuario deberá poder confirmar o corregir la información 
+detectada. No se procesarán pagos dentro de la primera versión. 
+2.5 Suposiciones y dependencias 
+Se asume que los usuarios dispondrán de internet y un navegador compatible, que los 
+tutores mantendrán actualizadas sus asignaturas y horarios, y que las asignaturas 
+estarán registradas en el sistema. La recomendación por cercanía dependerá de que el 
+usuario autorice la ubicación o seleccione una zona. El sistema dependerá también de la 
+disponibilidad del servicio de hosting y de la base de datos durante las pruebas y el 
+piloto. 
+2.6 Evolución previsible del sistema 
+En futuras versiones podrán incorporarse pagos en línea, calificaciones y reput ación de 
+tutores, seguimiento del progreso académico, tutorías grupales, recomendaciones 
+basadas en historial de uso y una aplicación móvil. Estas funciones no forman parte de 
+los requisitos obligatorios de la primera versión. 
+
+--- PAGINA 7 ---
+ 
+Aplicación web de tutorías académicas 
+Especificación de requisitos de software 
+Rev. 1.0 
+Pág. 7 
+ 
+  Descripción de requisitos del software 
+ 
+3 Requisitos específicos 
+3.1 Requisitos comunes de los interfaces 
+Las interfaces del sistema deberán permitir el intercambio de información entre el 
+usuario, la aplicación web, los servicios del backend y la base de datos, manteniendo 
+una interacción clara y consistente. 
+3.1.1 Interfaces de usuario 
+La interfaz deberá ser responsiva y comprensible. Incluirá formularios para 
+registro e inicio de sesión, perfil, publicación de tutorías y disponibilidad; buscador 
+por asignatura; resultados de tutores compatibles; detalle de horarios; solicitudes; 
+sesiones y mensajería. Los mensajes de error deberán ser claros y mostrarse 
+cerca de la acción correspondiente. 
+3.1.2 Interfaces de hardware 
+No se requiere hardware especializado. El sistema podrá utilizarse desde 
+computador, tableta o teléfono con navegador y acceso a internet. La 
+geolocalización del dispositivo será opcional y solo se utilizará con autorización 
+del usuario. 
+3.1.3 Interfaces de software 
+React se utilizará para la interfaz web, Tailwind CSS para el diseño responsivo, 
+Node.js para la lógica del backend y PostgreSQL para almacenar usuarios, 
+asignaturas, tutorías, horarios, solicitudes, sesiones y mensajes. Se empleará un 
+componente de procesamiento de PDF para intentar obtener los datos del horario 
+académico, manteniendo siempre una opción de corrección manual. 
+3.1.4 Interfaces de comunicación 
+La comunicación entre frontend y backend se realizará mediante servicios web 
+sobre HTTP/HTTPS y el intercambio de datos se realizará en formato JSON. En 
+el entorno desplegado deberá utilizarse HTTPS. La conexión a internet será 
+necesaria para autenticación, consultas, registro de información y mensajería.  
+3.2 Requisitos funcionales 
+Los siguientes requisitos describen las acciones principales que debe ejecutar el 
+software al recibir información, procesarla y generar resultados. 
+3.2.1 Registro de usuario 
+Número de requisito RF-01 
+Nombre de requisito Registro de usuario 
+Tipo X Requisito Restricción 
+Fuente del requisito CU-01 Registrarse 
+Prioridad del requisito X Alta/Esencial Media/Deseado Baja/Opcional 
+El sistema deberá permitir que un estudiante cree una cuenta con los datos 
+obligatorios definidos. Deberá validar los campos requeridos y evitar el registro 
+duplicado del mismo correo. 
+
+--- PAGINA 8 ---
+ 
+Aplicación web de tutorías académicas 
+Especificación de requisitos de software 
+Rev. 1.0 
+Pág. 8 
+ 
+  Descripción de requisitos del software 
+ 
+3.2.2 Autenticación de usuario 
+Número de requisito RF-02 
+Nombre de requisito Autenticación de usuario 
+Tipo X Requisito Restricción 
+Fuente del requisito CU-02 Iniciar sesión 
+Prioridad del requisito X Alta/Esencial Media/Deseado Baja/Opcional 
+El sistema deberá permitir iniciar sesión mediante correo y contraseña válidos y 
+habilitar las funciones correspondientes al rol del usuario. 
+3.2.3 Gestión de perfil 
+Número de requisito RF-03 
+Nombre de requisito Gestión de perfil 
+Tipo X Requisito Restricción 
+Fuente del requisito CU-03 Gestionar perfil 
+Prioridad del requisito X Alta/Esencial Media/Deseado Baja/Opcional 
+El sistema deberá permitir consultar y actualizar la información del perfil, 
+incluyendo datos académicos necesarios para buscar u ofrecer tutorías.  
+3.2.4 Publicación de tutorías 
+Número de requisito RF-04 
+Nombre de requisito Publicación de tutorías 
+Tipo X Requisito Restricción 
+Fuente del requisito CU-04 Publicar tutoría académica 
+Prioridad del requisito X Alta/Esencial Media/Deseado Baja/Opcional 
+El estudiante tutor deberá poder publicar una oferta de tutoría indicando la 
+asignatura y los datos necesarios para que otros estudiantes puedan encontrarla.  
+3.2.5 Carga de horario académico en PDF 
+Número de requisito RF-05 
+Nombre de requisito Carga de horario académico en PDF 
+Tipo X Requisito Restricción 
+Fuente del requisito CU-05 Cargar horario académico 
+Prioridad del requisito X Alta/Esencial Media/Deseado Baja/Opcional 
+El sistema deberá permitir cargar un archivo PDF con el horario académico para 
+intentar identificar las franjas ocupadas y libres del estudiante. 
+3.2.6 Confirmación del horario detectado 
+Número de requisito RF-06 
+Nombre de requisito Confirmación del horario detectado 
+Tipo X Requisito Restricción 
+Fuente del requisito CU-05 Cargar horario académico 
+Prioridad del requisito X Alta/Esencial Media/Deseado Baja/Opcional 
+Después de procesar el PDF, el sistema deberá mostrar las franjas detectadas y 
+permitir que el estudiante las confirme, corrija o complete manualmente antes de 
+guardarlas. 
+
+--- PAGINA 9 ---
+ 
+Aplicación web de tutorías académicas 
+Especificación de requisitos de software 
+Rev. 1.0 
+Pág. 9 
+ 
+  Descripción de requisitos del software 
+ 
+3.2.7 Gestión de disponibilidad 
+Número de requisito RF-07 
+Nombre de requisito Gestión de disponibilidad 
+Tipo X Requisito Restricción 
+Fuente del requisito CU-06 Gestionar disponibilidad 
+Prioridad del requisito X Alta/Esencial Media/Deseado Baja/Opcional 
+El sistema deberá permitir registrar, modificar y eliminar franjas de disponibilidad 
+utilizadas para coordinar tutorías. 
+3.2.8 Búsqueda por asignatura 
+Número de requisito RF-08 
+Nombre de requisito Búsqueda por asignatura 
+Tipo X Requisito Restricción 
+Fuente del requisito CU-07 Buscar tutor por asignatura 
+Prioridad del requisito X Alta/Esencial Media/Deseado Baja/Opcional 
+El estudiante solicitante deberá poder seleccionar una asignatura y visualizar 
+tutores que ofrezcan apoyo en esa materia. 
+3.2.9 Recomendación de tutores compatibles 
+Número de requisito RF-09 
+Nombre de requisito Recomendación de tutores compatibles 
+Tipo X Requisito Restricción 
+Fuente del requisito CU-08 Obtener recomendación de tutores compatibles 
+Prioridad del requisito X Alta/Esencial Media/Deseado Baja/Opcional 
+El sistema deberá comparar la asignatura requerida y la disponibilidad del 
+solicitante con la de los tutores. Cuando el usuario autorice ubicación o 
+seleccione una zona, la cercanía podrá utilizarse como criterio adicional para 
+ordenar los resultados. 
+3.2.10 Solicitud de tutoría 
+Número de requisito RF-10 
+Nombre de requisito Solicitud de tutoría 
+Tipo X Requisito Restricción 
+Fuente del requisito CU-09 Solicitar y agendar tutoría 
+Prioridad del requisito X Alta/Esencial Media/Deseado Baja/Opcional 
+El solicitante deberá poder seleccionar un tutor y una franja disponible para enviar 
+una solicitud de tutoría, que quedará inicialmente en estado pendiente.  
+3.2.11 Gestión de solicitudes de tutoría 
+Número de requisito RF-11 
+Nombre de requisito Gestión de solicitudes de tutoría 
+Tipo X Requisito Restricción 
+Fuente del requisito CU-10 Gestionar solicitud de tutoría 
+Prioridad del requisito X Alta/Esencial Media/Deseado Baja/Opcional 
+El tutor deberá poder aceptar, rechazar o proponer otro horario para una solicitud 
+recibida. El sistema deberá actualizar el estado y comunicar el cambio al 
+solicitante. 
+
+--- PAGINA 10 ---
+ 
+Aplicación web de tutorías académicas 
+Especificación de requisitos de software 
+Rev. 1.0 
+Pág. 10 
+ 
+  Descripción de requisitos del software 
+ 
+3.2.12 Mensajería entre participantes 
+Número de requisito RF-12 
+Nombre de requisito Mensajería entre participantes 
+Tipo X Requisito Restricción 
+Fuente del requisito CU-11 Comunicarse entre participantes 
+Prioridad del requisito Alta/Esencial X Media/Deseado Baja/Opcional 
+El sistema deberá permitir el intercambio de mensajes entre solicitante y tutor 
+cuando exista una solicitud o sesión relacionada. 
+3.2.13 Consulta y gestión de sesiones 
+Número de requisito RF-13 
+Nombre de requisito Consulta y gestión de sesiones 
+Tipo X Requisito Restricción 
+Fuente del requisito CU-09 / CU-10 
+Prioridad del requisito X Alta/Esencial Media/Deseado Baja/Opcional 
+Cada usuario deberá poder consultar sus tutorías pendientes, confirmadas, 
+reprogramadas, canceladas y completadas, así como cancelar o solicitar una 
+reprogramación antes de la sesión. 
+3.2.14 Administración básica 
+Número de requisito RF-14 
+Nombre de requisito Administración básica 
+Tipo X Requisito Restricción 
+Fuente del requisito CU-12 Administrar usuarios y sesiones 
+Prioridad del requisito Alta/Esencial X Media/Deseado Baja/Opcional 
+El administrador deberá poder consultar usuarios, publicaciones y sesiones y 
+ejecutar las acciones de control definidas para mantener organizada la 
+información de la plataforma. 
+3.3 Requisitos no funcionales 
+3.3.1 Requisitos de rendimiento 
+En condiciones normales del entorno piloto, al menos el 95% de las operaciones 
+comunes de consulta, registro y actualización deberán responder en un máximo 
+de 3 segundos. La generación de recomendaciones podrá tomar hasta 5 
+segundos cuando deba comparar disponibilidad y cercanía. 
+3.3.2 Seguridad 
+Las contraseñas deberán almacenarse mediante técnicas de hash. El sistema 
+deberá aplicar control de acceso según el rol del usuario, utilizar HTTPS en el 
+entorno desplegado y solicitar consentimiento antes de utilizar la ubicación. No se 
+mostrará públicamente información personal que no sea necesaria para coordinar 
+una tutoría. 
+3.3.3 Fiabilidad 
+El sistema deberá validar la información antes de registrar o modificar usuarios, 
+horarios, solicitudes y sesiones. Si ocurre un error, deberá informar al usuario y 
+conservar los datos previamente confirmados. Se deberán evitar registros 
+duplicados o estados incompatibles en una misma sesión. 
+
+--- PAGINA 11 ---
+ 
+Aplicación web de tutorías académicas 
+Especificación de requisitos de software 
+Rev. 1.0 
+Pág. 11 
+ 
+  Descripción de requisitos del software 
+ 
+3.3.4 Disponibilidad 
+Durante las pruebas y el piloto, el servicio deberá estar disponible al menos el 
+95% del tiempo previsto de uso, excluyendo periodos de mantenimiento 
+programado. 
+3.3.5 Mantenibilidad 
+El sistema deberá organizarse de forma modular, separando interfaz, lógica de 
+negocio y acceso a datos. Se utilizará control de versiones y se mantendrá 
+documentación técnica para facilitar correcciones, mantenimiento y la 
+incorporación de nuevas funcionalidades. 
+3.3.6 Portabilidad 
+La aplicación deberá ejecutarse desde un navegador moderno sin instalación 
+local y adaptar su interfaz a computadoras y dispositivos móviles. Se verificará su 
+funcionamiento al menos en navegadores basados en Chromium y Firefox. 
+3.4 Otros requisitos 
+La plataforma deberá respetar la privacidad de los usuarios y solicitar únicamente la 
+información necesaria. La ubicación será voluntaria. La lectura automática del horario en 
+PDF deberá incluir una alternativa de confirmación o registro manual. La navegación 
+deberá ser comprensible para usuarios sin conocimientos técnicos.  
+4 Apéndices 
+Trazabilidad principal: RF-01 registro (CU-01), RF-02 autenticación (CU-02), RF-03 perfil 
+(CU-03), RF-04 publicación (CU-04), RF-05 y RF-06 horario PDF (CU-05), RF-07 
+disponibilidad (CU-06), RF-08 búsqueda (CU-07), RF-09 recomendación (CU-08), RF-10 
+solicitud (CU-09), RF-11 gestión de solicitudes (CU-10), RF-12 mensajería (CU-11), RF-13 
+consulta de sesiones y RF-14 administración (CU-12). 

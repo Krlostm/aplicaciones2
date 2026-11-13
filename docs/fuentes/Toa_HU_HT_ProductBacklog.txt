@@ -1,0 +1,979 @@
+
+--- PAGINA 1 ---
+ESCUELA SUPERIOR POLITÉCNICA DE CHIMBORAZO
+FACULTAD DE INFORMÁTICA Y ELECTRÓNICA
+“HISTORIAS DE USUARIO,
+HISTORIAS TÉCNICAS Y
+PILA DEL PRODUCTO”
+ASIGNATURA
+APLICACIONES INFORMÁTICAS II
+NOMBRE
+CARLOS JAVIER TOA CHÁVEZ (7453)
+PERIODO
+SEPTIEMBRE 2026 – FEBRERO 2027
+PROYECTO DE TESIS
+Desarrollo de una aplicación web para gestionar tutorías académicas entre estudiantes 
+universitarios
+
+--- PAGINA 2 ---
+2
+1. INTRODUCCIÓN
+Este documento organiza los requisitos del proyecto en historias de usuario, historias técnicas y una pila del producto 
+priorizada. Toma como documentos de referencia el anteproyecto de tesis, la especificación de requisitos IEEE 830 
+(RF-01 a RF-18 y RNF-01 a RNF-06), los casos de uso preparados para el proyecto y los lineamientos de 
+Aplicaciones Informáticas II. La estructura de fichas sigue el formato explicado en las diapositivas del docente y 
+presentado en el ejercicio de referencia de la asignatura.
+La aplicación se centra en tutorías académicas entre estudiantes universitarios: publicación y búsqueda por asignatura, 
+horarios, coordinación, mensajería y administración. Se conservan la importación de horario desde PDF con 
+confirmación manual, las recomendaciones por materia y coincidencia horaria y la cercanía opcional. Como 
+ampliaciones propuestas, se incluyen conversación previa a la solicitud, oferta personalizada gratuita/remunerada y 
+procesamiento de pagos. Estas ampliaciones no sustituyen los objetivos aprobados de la tesis ni se confunden con 
+requisitos originales.
+2. CONTEXTO, ROLES Y CONTROL DEL ALCANCE
+2.1 Objetivos del anteproyecto (sin modificación)
+Objetivo general: Desarrollar una aplicación web para gestionar tutorías académicas entre estudiantes universitarios.
+Objetivos específicos (transcripción del anteproyecto):
+1. Determinar los requerimientos funcionales y no funcionales de la aplicación web de tutorías académicas entre 
+estudiantes universitarios, mediante técnicas de recolección de información y definición de historias de usuario.
+2. Diseñar la arquitectura del sistema, las interfaces de usuario (UI/UX) y el modelo de datos relacional de la 
+aplicación web de tutorías académicas, mediante el uso de diagramas UML, herramientas de prototipado y 
+modelado entidad-relación.
+3. Desarrollar los módulos de la aplicación, utilizando tecnologías web y un enfoque de desarrollo incremental.
+4. Evaluar la eficiencia de desempeño de la aplicación web mediante pruebas basadas en la norma ISO/IEC 
+25010:2023
+2.2 Roles y módulos previstos
+Rol Funciones principales
+Estudiante solicitante Buscar tutores; comparar horarios; conversar; enviar solicitudes; valorar y aceptar 
+propuestas; gestionar sesiones; pagar cuando corresponda.
+Estudiante tutor Publicar ofertas académicas; definir disponibilidad; comunicarse; gestionar solicitudes; 
+emitir propuestas gratuitas o remuneradas.
+Administrador Gestionar información de usuarios, publicaciones y sesiones mediante acciones autorizadas.
+Los cinco módulos del anteproyecto se mantienen: usuarios, tutorías, horarios, comunicación y gestión. La gestión de 
+propuestas y pagos se documenta como ampliación funcional vinculada con tutorías, coordinación y sesiones; no 
+representa un cambio del objetivo general.
+2.3 Requisitos originales y ampliaciones propuestas
+Los códigos RF-01 a RF-18 pertenecen a la ERS original y no se renombran. Los códigos RF-P01 a RF-P05 
+identifican modificaciones funcionales propuestas para futura revisión formal de la ERS. No se atribuyen estos 
+requisitos propuestos al documento original.
+
+--- PAGINA 3 ---
+3
+Código Descripción de ampliación Relación con ERS
+RF-P01 Contacto y mensajería antes de enviar solicitud. Amplía RF-15 (que originalmente requiere 
+solicitud o sesión relacionada).
+RF-P02 Propuesta personalizada de tutoría con temas, fecha, 
+duración y gratuidad o precio. Nuevo; se apoya en RF-04, RF-13 a RF-15.
+RF-P03 Aceptar o rechazar una propuesta antes de 
+confirmar la sesión. Nuevo; se relaciona con RF-13, RF-14 y RF-16.
+RF-P04 Pagar una propuesta remunerada aceptada por 
+medio de un proveedor externo.
+Nuevo; sujeto a viabilidad técnica del 
+proveedor.
+RF-P05 Verificar de forma segura el pago y consultar el 
+estado correspondiente.
+Nuevo; sujeto a viabilidad técnica del 
+proveedor.
+Regla propuesta para mantener coherencia: una tutoría gratuita puede confirmarse sin procesar un pago; una 
+remunerada requiere una propuesta aceptada y verificación del proveedor antes de marcarla pagada. La coordinación 
+mediante solicitud directa (RF-13 y RF-14) se conserva; el contacto previo y las propuestas son una ampliación, no su 
+eliminación. Los detalles de cancelación de tutorías pagadas y eventual devolución requieren definición junto con el 
+proveedor antes de poner en producción el cobro.
+La plataforma no cobrará comisión propia en la primera versión. Ello no significa que el procesador sea gratuito. 
+Cobrar comisiones, retener fondos directamente y funciones avanzadas de monetización se excluyen de este backlog; 
+podrían evaluarse en una versión futura.
+2.4 Tecnologías y criterios no funcionales
+Arquitectura cliente-servidor de tres capas: presentación con React y Tailwind CSS; API REST con Node.js y 
+Express; acceso a datos y persistencia PostgreSQL. El modelo relacional y los repositorios se representan como 
+componentes de acceso a datos, en coherencia con el diagrama arquitectónico trabajado para la asignatura. La 
+extracción de PDF y el motor de recomendación se resolverán inicialmente con reglas de procesamiento, sin requerir 
+IA generativa.
+Se conserva el RNF-01 original: en el entorno piloto, por lo menos 95 % de las operaciones habituales de consulta, 
+registro y actualización deberán responder como máximo en 3 segundos; las recomendaciones podrán tomar hasta 5 
+segundos. También se consideran RNF-02 (seguridad), RNF-03 (fiabilidad), RNF-04 (disponibilidad), RNF-05 
+(mantenibilidad) y RNF-06 (portabilidad). La evaluación de eficiencia de desempeño deriva directamente del objetivo 
+específico de tesis.
+3. HISTORIAS DE USUARIO
+3.1 Formato y convenciones
+Cada historia expresa «Como [rol], quiero [funcionalidad], para [beneficio]» y contiene identificador, estimación, 
+prioridad, dependencias, referencias de requisito y entre tres y cuatro criterios de aceptación verificables expresados 
+con contexto, evento y resultado esperado. No especifica pasos de navegación ni herramientas de implementación. 
+Los puntos de historia (serie 1, 2, 3, 5, 8, 13) son estimaciones preliminares de esfuerzo relativo, sujetas a revisión 
+docente. La prioridad de una HU puede reajustarse al cambiar el alcance: por ejemplo, la mensajería RF-15 era de 
+prioridad media en la ERS original, pero HU-14 se prioriza alta porque el contacto previo habilita el nuevo flujo 
+propuesto de ofertas.
+
+--- PAGINA 4 ---
+4
+3.2 Resumen de historias de usuario
+ID Título / funcionalidad Rol Pts Prioridad Dependencias RF
+HU-01 Registro de estudiante Est. universitario 5 Alta HT-03, HT-04, HT-05 RF-01
+HU-02 Inicio y cierre de sesión Usuario registrado 5 Alta HU-01, HT-04, 
+HT-05 RF-02
+HU-03 Consulta y actualización de perfil Est. registrado 3 Alta HU-02, HT-03 RF-03
+HU-04 Publicación de tutorías Est. tutor 5 Alta HU-03, HT-03 RF-04
+HU-05 Gestión de publicaciones Est. tutor 3 Media HU-04 RF-05
+HU-06 Carga y confirmación de horario 
+PDF
+Est. solicitante o 
+tutor 8 Alta HU-07, HT-06 RF-06, RF-07
+HU-07 Registro manual de disponibilidad Est. solicitante o 
+tutor 5 Alta HU-02, HT-03 RF-08
+HU-08 Búsqueda de tutores por asignatura Est. solicitante 5 Alta HU-04, HT-03 RF-09
+HU-09 Consulta de información del tutor Est. solicitante 3 Alta HU-08, HU-07 RF-12
+HU-10 Recomendación por coincidencia 
+horaria Est. solicitante 8 Alta HU-07, HU-08, 
+HT-07 RF-10
+HU-11 Priorización por cercanía 
+voluntaria Est. solicitante 3 Media HU-10, HT-07 RF-11
+HU-12 Solicitud de tutoría Est. solicitante 5 Alta HU-09, HU-07, 
+HT-08 RF-13
+HU-13 Respuesta y ajuste de solicitudes Est. tutor 5 Alta HU-12, HT-08 RF-14
+HU-14 Mensajería y contacto previo Est. solicitante o 
+tutor 5 Alta HU-09, HT-08 RF-15 (ampliado 
+por RF-P01)
+HU-15 Consulta de sesiones y estados Est. solicitante o 
+tutor 3 Alta HU-12, HU-13, 
+HT-08 RF-16
+HU-16 Cancelación o reprogramación de 
+sesión
+Est. solicitante o 
+tutor 5 Media HU-15, HU-13, 
+HT-08 RF-17
+HU-17 Administración básica Administrador 5 Media HU-02, HT-04, 
+HT-08 RF-18
+HU-18 Envío de propuesta personalizada Est. tutor 5 Alta HU-14, HU-07, 
+HT-08
+RF-P02 
+(propuesto)
+HU-19 Aceptación o rechazo de propuesta Est. solicitante 5 Alta HU-18, HT-08 RF-P03 
+(propuesto)
+HU-20 Pago de propuesta remunerada Est. solicitante 8 Alta HU-19, HT-12 RF-P04 
+(propuesto)
+HU-21 Verificación y consulta del estado 
+de pago
+Est. solicitante o 
+tutor 5 Alta HU-20, HT-12, 
+HT-08
+RF-P05 
+(propuesto)
+
+--- PAGINA 5 ---
+5
+3.3 Fichas de historias de usuario
+HU-01 — Registro de estudiante
+Rol Estudiante universitario
+Descripción Como estudiante universitario, quiero registrarme con mis datos básicos, para acceder a los 
+servicios de tutorías académicas.
+Estimación 5 puntos de historia
+Prioridad Alta
+Dependencias HT-03, HT-04, HT-05
+Requisitos 
+relacionados RF-01 / CU-01
+Criterios de aceptación
+CA1. Dado que los datos obligatorios son válidos y el correo no existe, cuando solicito 
+registrarme, entonces se crea mi cuenta.
+CA2. Dado que el correo ya está registrado, cuando intento crear una cuenta, entonces el 
+sistema impide duplicarla.
+CA3. Dado que falta un dato obligatorio, cuando envío el registro, entonces se indica el 
+campo a corregir.
+HU-02 — Inicio y cierre de sesión
+Rol Usuario registrado
+Descripción Como usuario registrado, quiero iniciar y cerrar sesión, para utilizar únicamente las funciones 
+autorizadas de mi cuenta.
+Estimación 5 puntos de historia
+Prioridad Alta
+Dependencias HU-01, HT-04, HT-05
+Requisitos 
+relacionados RF-02 / CU-02
+Criterios de aceptación
+CA1. Dado que las credenciales son correctas, cuando inicio sesión, entonces accedo a las 
+funciones permitidas para mi rol.
+CA2. Dado que ingreso credenciales incorrectas, cuando intento acceder, entonces el sistema 
+rechaza la autenticación sin revelar información sensible.
+CA3. Dado que no estoy autenticado, cuando solicito una función protegida, entonces el 
+sistema exige iniciar sesión.
+CA4. Dado que estoy autenticado, cuando cierro sesión, entonces el acceso protegido deja de 
+estar disponible.
+HU-03 — Consulta y actualización de perfil
+Rol Estudiante registrado
+Descripción Como estudiante registrado, quiero consultar y actualizar mi perfil académico, para mantener 
+vigente mi información para buscar u ofrecer tutorías.
+Estimación 3 puntos de historia
+
+--- PAGINA 6 ---
+6
+Prioridad Alta
+Dependencias HU-02, HT-03
+Requisitos 
+relacionados RF-03 / CU-03
+Criterios de aceptación
+CA1. Dado que tengo una cuenta activa, cuando consulto mi perfil, entonces visualizo la 
+información académica registrada.
+CA2. Dado que ingreso cambios válidos, cuando los confirmo, entonces el perfil queda 
+actualizado.
+CA3. Dado que la información es inválida, cuando intento guardarla, entonces el sistema 
+solicita corregirla.
+HU-04 — Publicación de tutorías
+Rol Estudiante tutor
+Descripción Como estudiante tutor, quiero publicar las asignaturas en las que ofrezco apoyo académico, 
+para que otros estudiantes encuentren mis tutorías.
+Estimación 5 puntos de historia
+Prioridad Alta
+Dependencias HU-03, HT-03
+Requisitos 
+relacionados RF-04 / CU-04
+Criterios de aceptación
+CA1. Dado que selecciono una asignatura válida y completo los datos requeridos, cuando 
+publico mi tutoría, entonces queda disponible para consultas.
+CA2. Dado que falta información obligatoria, cuando intento publicar, entonces el sistema 
+explica qué dato falta.
+CA3. Dado que una publicación está activa, cuando un solicitante busca su asignatura, 
+entonces puede encontrarla.
+HU-05 — Gestión de publicaciones
+Rol Estudiante tutor
+Descripción Como estudiante tutor, quiero consultar, editar, activar y desactivar mis publicaciones, para 
+mantener actualizada mi oferta académica.
+Estimación 3 puntos de historia
+Prioridad Media
+Dependencias HU-04
+Requisitos 
+relacionados RF-05 / CU-04
+
+--- PAGINA 7 ---
+7
+Criterios de aceptación
+CA1. Dado que tengo publicaciones, cuando consulto mi listado, entonces se muestran con su 
+estado.
+CA2. Dado que soy propietario de una publicación, cuando modifico información válida, 
+entonces se guardan los cambios.
+CA3. Dado que desactivo una publicación, cuando otro estudiante busca tutores, entonces la 
+publicación deja de ofrecerse como activa.
+CA4. Dado que no soy propietario de la publicación, cuando intento editarla, entonces se 
+rechaza la operación.
+HU-06 — Carga y confirmación de horario PDF
+Rol Estudiante solicitante o tutor
+Descripción Como estudiante, quiero cargar mi horario académico en PDF y corregir los periodos 
+detectados, para registrar mi disponibilidad sin transcribir todo manualmente.
+Estimación 8 puntos de historia
+Prioridad Alta
+Dependencias HU-07, HT-06
+Requisitos 
+relacionados RF-06, RF-07 / CU-05
+Criterios de aceptación
+CA1. Dado un archivo PDF legible, cuando lo cargo, entonces el sistema intenta identificar 
+bloques ocupados y muestra el resultado para revisión.
+CA2. Dado que la detección presenta errores, cuando corrijo o completo las franjas, entonces 
+puedo confirmar el horario ajustado.
+CA3. Dado que el PDF no permite extraer los periodos, cuando termina el intento, entonces 
+se ofrece el registro manual sin perder funcionalidad.
+CA4. Dado que no he confirmado la información detectada, cuando abandono la revisión, 
+entonces no se guarda como horario validado.
+HU-07 — Registro manual de disponibilidad
+Rol Estudiante solicitante o tutor
+Descripción Como estudiante, quiero registrar, modificar y eliminar franjas de disponibilidad, para 
+organizar sesiones en los horarios en que puedo participar.
+Estimación 5 puntos de historia
+Prioridad Alta
+Dependencias HU-02, HT-03
+Requisitos 
+relacionados RF-08 / CU-06
+Criterios de aceptación
+CA1. Dado que registro una franja válida, cuando la guardo, entonces se incorpora a mi 
+disponibilidad.
+CA2. Dado que cambio o elimino una franja propia, cuando confirmo la acción, entonces el 
+calendario refleja el estado actualizado.
+CA3. Dado que ingreso una franja incoherente, cuando intento guardarla, entonces el sistema 
+la rechaza e indica la causa.
+
+--- PAGINA 8 ---
+8
+HU-08 — Búsqueda de tutores por asignatura
+Rol Estudiante solicitante
+Descripción Como estudiante solicitante, quiero buscar tutorías por asignatura, para identificar 
+compañeros que puedan ayudarme en esa materia.
+Estimación 5 puntos de historia
+Prioridad Alta
+Dependencias HU-04, HT-03
+Requisitos 
+relacionados RF-09 / CU-07
+Criterios de aceptación
+CA1. Dado que existen publicaciones activas de una asignatura, cuando realizo la búsqueda, 
+entonces aparecen los tutores correspondientes.
+CA2. Dado que no existen coincidencias, cuando consulto una asignatura, entonces se 
+presenta un resultado vacío comprensible.
+CA3. Dado que una publicación está desactivada, cuando busco tutores, entonces no se 
+presenta como oferta activa.
+HU-09 — Consulta de información del tutor
+Rol Estudiante solicitante
+Descripción Como estudiante solicitante, quiero consultar las asignaturas y horarios de un tutor, para 
+evaluar si puedo solicitarle apoyo.
+Estimación 3 puntos de historia
+Prioridad Alta
+Dependencias HU-08, HU-07
+Requisitos 
+relacionados RF-12 / CU-07, CU-08
+Criterios de aceptación
+CA1. Dado que selecciono un tutor publicado, cuando consulto su información, entonces 
+visualizo sus materias y disponibilidad relevante.
+CA2. Dado que una parte del perfil es privada, cuando consulto al tutor, entonces no se 
+muestran datos personales ajenos a la coordinación.
+CA3. Dado que el tutor actualiza su disponibilidad, cuando vuelvo a consultar, entonces se 
+muestra la información vigente.
+HU-10 — Recomendación por coincidencia horaria
+Rol Estudiante solicitante
+Descripción Como estudiante solicitante, quiero recibir tutores de mi asignatura con horarios compatibles, 
+para encontrar opciones adecuadas a mi disponibilidad.
+Estimación 8 puntos de historia
+Prioridad Alta
+Dependencias HU-07, HU-08, HT-07
+
+--- PAGINA 9 ---
+9
+Requisitos 
+relacionados RF-10 / CU-08
+Criterios de aceptación
+CA1. Dado que hay estudiantes y tutores disponibles para una asignatura, cuando solicito 
+recomendaciones, entonces se priorizan coincidencias horarias.
+CA2. Dado que un tutor no ofrece la asignatura solicitada, cuando se generan resultados, 
+entonces no figura como coincidencia válida.
+CA3. Dado que no hay franjas compatibles, cuando realizo la consulta, entonces se informa 
+que no se hallaron coincidencias.
+CA4. Dado que se modifica una franja, cuando se repite la recomendación, entonces se 
+emplea la disponibilidad actualizada.
+HU-11 — Priorización por cercanía voluntaria
+Rol Estudiante solicitante
+Descripción Como estudiante solicitante, quiero considerar una ubicación autorizada o zona de campus, 
+para priorizar tutores cercanos cuando ello sea posible.
+Estimación 3 puntos de historia
+Prioridad Media
+Dependencias HU-10, HT-07
+Requisitos 
+relacionados RF-11 / CU-08
+Criterios de aceptación
+CA1. Dado que autorizo mi ubicación o selecciono una zona, cuando solicito 
+recomendaciones, entonces la cercanía se usa como criterio adicional.
+CA2. Dado que no autorizo ubicación, cuando solicito recomendaciones, entonces siguen 
+funcionando la asignatura y la compatibilidad horaria.
+CA3. Dado que actualizo mi ubicación o zona, cuando solicito nuevamente resultados, 
+entonces se recalcula la preferencia de cercanía.
+HU-12 — Solicitud de tutoría
+Rol Estudiante solicitante
+Descripción Como estudiante solicitante, quiero enviar una solicitud de tutoría indicando tutor y franja 
+disponible, para iniciar la coordinación de una sesión.
+Estimación 5 puntos de historia
+Prioridad Alta
+Dependencias HU-09, HU-07, HT-08
+Requisitos 
+relacionados RF-13 / CU-09
+Criterios de aceptación
+CA1. Dado que selecciono tutor y horario disponible, cuando envío una solicitud, entonces 
+queda registrada como pendiente.
+CA2. Dado que el horario propuesto no está disponible, cuando intento solicitarlo, entonces 
+el sistema impide confirmar una franja conflictiva.
+CA3. Dado que realizo una solicitud, cuando consulto su estado, entonces puedo reconocer 
+que está pendiente de respuesta.
+
+--- PAGINA 10 ---
+10
+HU-13 — Respuesta y ajuste de solicitudes
+Rol Estudiante tutor
+Descripción Como estudiante tutor, quiero aceptar, rechazar o proponer otro horario para las solicitudes 
+recibidas, para acordar una tutoría viable.
+Estimación 5 puntos de historia
+Prioridad Alta
+Dependencias HU-12, HT-08
+Requisitos 
+relacionados RF-14 / CU-10
+Criterios de aceptación
+CA1. Dado que recibo una solicitud pendiente, cuando la acepto y no existe conflicto de 
+horario, entonces el sistema actualiza su estado.
+CA2. Dado que rechazo una solicitud, cuando confirmo la decisión, entonces se registra el 
+rechazo y se informa al solicitante.
+CA3. Dado que propongo un cambio de horario, cuando envío mi alternativa, entonces queda 
+registrada para conocimiento del solicitante.
+CA4. Dado que alguien ajeno a la tutoría intenta responder, cuando solicita cambiar el estado, 
+entonces se deniega la operación.
+HU-14 — Mensajería y contacto previo
+Rol Estudiante solicitante o tutor
+Descripción Como estudiante, quiero conversar con un tutor antes o durante la coordinación, para aclarar 
+los temas académicos y las condiciones de una tutoría.
+Estimación 5 puntos de historia
+Prioridad Alta
+Dependencias HU-09, HT-08
+Requisitos 
+relacionados RF-15 (ampliado por RF-P01) / CU-11 a actualizar
+Criterios de aceptación
+CA1. Dado que identifico un tutor con publicación activa, cuando inicio una conversación 
+sobre su tutoría, entonces puedo enviarle un mensaje sin solicitud previa.
+CA2. Dado que soy participante de la conversación, cuando consulto sus mensajes, entonces 
+puedo leer el intercambio relacionado.
+CA3. Dado que no pertenezco a la conversación, cuando solicito su contenido, entonces se 
+rechaza el acceso.
+CA4. Dado que existe solicitud o sesión relacionada, cuando intercambiamos mensajes, 
+entonces el contacto permanece disponible para coordinarla.
+HU-15 — Consulta de sesiones y estados
+Rol Estudiante solicitante o tutor
+Descripción Como estudiante, quiero consultar mis sesiones pendientes, confirmadas, reprogramadas, 
+canceladas o completadas, para dar seguimiento al apoyo académico.
+Estimación 3 puntos de historia
+
+--- PAGINA 11 ---
+11
+Prioridad Alta
+Dependencias HU-12, HU-13, HT-08
+Requisitos 
+relacionados RF-16 / CU-09, CU-10
+Criterios de aceptación
+CA1. Dado que tengo solicitudes o sesiones relacionadas, cuando consulto mis tutorías, 
+entonces se muestran con su estado vigente.
+CA2. Dado que una sesión cambia de estado, cuando la consulto nuevamente, entonces se 
+visualiza la actualización.
+CA3. Dado que una sesión pertenece a otros participantes, cuando intento verla, entonces no 
+obtengo su información privada.
+HU-16 — Cancelación o reprogramación de sesión
+Rol Estudiante solicitante o tutor
+Descripción Como participante, quiero cancelar o solicitar reprogramar una tutoría antes de realizarla, 
+para mantener actualizado el acuerdo.
+Estimación 5 puntos de historia
+Prioridad Media
+Dependencias HU-15, HU-13, HT-08
+Requisitos 
+relacionados RF-17 / Gestión de sesiones
+Criterios de aceptación
+CA1. Dado que una tutoría aún no se ha realizado, cuando solicito su cancelación, entonces 
+se registra su nuevo estado.
+CA2. Dado que solicito reprogramarla, cuando propongo un nuevo horario, entonces el 
+sistema valida su disponibilidad y registra la solicitud de cambio.
+CA3. Dado que cambia una fecha o estado, cuando el otro participante consulta la sesión, 
+entonces observa la actualización.
+CA4. Dado que la tutoría es remunerada y está pagada, cuando se cancela, entonces la 
+operación queda pendiente de la política del proveedor, sin emitir reembolsos automáticos no 
+definidos.
+HU-17 — Administración básica
+Rol Administrador
+Descripción Como administrador, quiero revisar usuarios, publicaciones y sesiones para ejecutar acciones 
+de control autorizadas, para mantener la información de la plataforma.
+Estimación 5 puntos de historia
+Prioridad Media
+Dependencias HU-02, HT-04, HT-08
+Requisitos 
+relacionados RF-18 / CU-12
+
+--- PAGINA 12 ---
+12
+Criterios de aceptación
+CA1. Dado que tengo rol de administrador, cuando consulto registros del sistema, entonces 
+accedo a la información correspondiente a mis permisos.
+CA2. Dado que una cuenta sin permisos administrativos solicita la función, cuando intenta 
+utilizarla, entonces se rechaza el acceso.
+CA3. Dado que ejecuto una acción administrativa permitida, cuando la confirmo, entonces el 
+sistema registra el cambio coherentemente.
+HU-18 — Envío de propuesta personalizada
+Rol Estudiante tutor
+Descripción Como estudiante tutor, quiero enviar una propuesta con temas, fecha, duración y condición 
+gratuita o remunerada, para acordar con el solicitante los términos de la tutoría.
+Estimación 5 puntos de historia
+Prioridad Alta
+Dependencias HU-14, HU-07, HT-08
+Requisitos 
+relacionados RF-P02 (propuesto)
+Criterios de aceptación
+CA1. Dado que he conversado con un solicitante, cuando preparo una propuesta completa, 
+entonces puedo enviarla con temas, duración, horario y precio o condición gratuita.
+CA2. Dado que falta un campo esencial o el horario no es válido, cuando intento enviar la 
+propuesta, entonces se impide su emisión.
+CA3. Dado que la propuesta fue enviada, cuando el solicitante la consulta, entonces puede 
+revisar sus condiciones antes de responder.
+HU-19 — Aceptación o rechazo de propuesta
+Rol Estudiante solicitante
+Descripción Como estudiante solicitante, quiero aceptar o rechazar una propuesta de tutoría, para decidir 
+si estoy de acuerdo con sus condiciones.
+Estimación 5 puntos de historia
+Prioridad Alta
+Dependencias HU-18, HT-08
+Requisitos 
+relacionados RF-P03 (propuesto)
+Criterios de aceptación
+CA1. Dado que tengo una propuesta pendiente, cuando la consulto, entonces veo temas, 
+horario, duración y condición de pago.
+CA2. Dado que acepto una propuesta gratuita y el horario sigue disponible, cuando confirmo 
+la decisión, entonces la sesión puede confirmarse sin cobrar.
+CA3. Dado que acepto una propuesta remunerada, cuando confirmo la decisión, entonces se 
+registra la aceptación y queda pendiente de verificación de pago.
+CA4. Dado que rechazo una propuesta, cuando confirmo la decisión, entonces el estado 
+refleja el rechazo sin crear una sesión confirmada.
+
+--- PAGINA 13 ---
+13
+HU-20 — Pago de propuesta remunerada
+Rol Estudiante solicitante
+Descripción Como estudiante solicitante, quiero pagar una propuesta remunerada que acepté, para 
+continuar la contratación de la tutoría acordada.
+Estimación 8 puntos de historia
+Prioridad Alta
+Dependencias HU-19, HT-12
+Requisitos 
+relacionados RF-P04 (propuesto)
+Criterios de aceptación
+CA1. Dado que acepté una propuesta remunerada, cuando inicio el pago, entonces se presenta 
+el importe acordado mediante el proveedor seleccionado.
+CA2. Dado que la propuesta es gratuita, cuando la acepto, entonces el sistema no exige 
+pasarela de pago.
+CA3. Dado que el proveedor devuelve un resultado no confirmado, cuando regreso a la 
+aplicación, entonces la sesión no se marca automáticamente como pagada.
+CA4. Dado que un pago falla o se cancela, cuando se recibe su resultado, entonces se 
+conserva un estado coherente y se informa al solicitante.
+HU-21 — Verificación y consulta del estado de pago
+Rol Estudiante solicitante o tutor
+Descripción Como participante de una tutoría remunerada, quiero consultar su estado de pago validado, 
+para saber cuándo la contratación está confirmada.
+Estimación 5 puntos de historia
+Prioridad Alta
+Dependencias HU-20, HT-12, HT-08
+Requisitos 
+relacionados RF-P05 (propuesto)
+Criterios de aceptación
+CA1. Dado que el proveedor verifica un pago correcto, cuando se procesa su confirmación 
+autenticada, entonces se actualiza el estado de pago y la sesión correspondiente.
+CA2. Dado que la transacción está pendiente o fue rechazada, cuando se consulta el estado, 
+entonces no se muestra como pagada.
+CA3. Dado que llega varias veces la confirmación de una transacción, cuando se procesa de 
+nuevo, entonces no se generan pagos ni sesiones duplicadas.
+CA4. Dado que un usuario es parte de la tutoría, cuando consulta el estado, entonces ve el 
+resultado vigente sin exponer datos sensibles de tarjeta.
+
+--- PAGINA 14 ---
+14
+4. HISTORIAS TÉCNICAS (ENABLERS)
+4.1 Formato
+Las historias técnicas son tareas de arquitectura, infraestructura, seguridad, integración, exploración o calidad que 
+hacen posible implementar las historias de usuario. Se describen con lenguaje técnico claro, criterios verificables, 
+tareas, pruebas, estimación y dependencias; no necesitan la fórmula narrativa «Como usuario...».
+4.2 Resumen de historias técnicas
+ID Título Tipo Pts Prioridad Depende de
+HT-01 Preparación del entorno de desarrollo Infraestructura del 
+equipo 3 Alta Ninguna
+HT-02 Diseño e implementación de arquitectura de 
+tres capas Arquitectura 5 Alta HT-01
+HT-03 Modelo relacional, entidades y repositorios Infraestructura de 
+producto 8 Alta HT-02
+HT-04 Autenticación, autorización y protección de 
+datos
+Arquitectura / 
+seguridad 8 Alta HT-02, HT-03
+HT-05 Componentes de interfaz y cliente HTTP Arquitectura de 
+presentación 5 Alta HT-02
+HT-06 Extracción y verificación de horario 
+académico PDF
+Exploración técnica e 
+integración 8 Alta HT-03, HU-07
+HT-07 Motor de compatibilidad de horarios y 
+cercanía Lógica de negocio 8 Alta HT-03, HU-07, HU-08
+HT-08 Reglas de solicitudes, mensajes, propuestas 
+y sesiones
+Infraestructura de 
+producto / lógica 8 Alta HT-03, HT-04
+HT-09 Integración, pruebas y eficiencia de 
+desempeño Calidad / evaluación 8 Alta HU-21, HU-15, HT-07, 
+HT-12
+HT-10 Despliegue de prueba y documentación Infraestructura de 
+producto 5 Media HT-02, HT-03, HT-04
+HT-11 Evaluación de pasarela de pago apta para 
+tutores
+Spike / exploración 
+técnica 5 Alta HT-01
+HT-12 Integración de pago y comprobación segura 
+de transacciones
+Arquitectura / 
+integración / seguridad 13 Alta HT-11, HT-03, HT-04, 
+HT-08, HU-19
+4.3 Fichas de historias técnicas
+HT-01 — Preparación del entorno de desarrollo
+Tipo Infraestructura del equipo
+Descripción Organizar el repositorio, dependencias, configuración y ejecución local de la aplicación web 
+y de la API REST.
+
+--- PAGINA 15 ---
+15
+Criterios de aceptación
+CA1. El repositorio permite iniciar frontend y backend siguiendo instrucciones 
+documentadas.
+CA2. Las credenciales permanecen fuera del control de versiones.
+CA3. Las versiones de dependencias utilizadas en el prototipo quedan identificadas.
+Tareas Crear repositorio y estructura de carpetas; configurar Node.js, React y dependencias; definir 
+variables de entorno; redactar guía de ejecución.
+Pruebas Prueba de instalación y ejecución en entorno limpio.
+Dependencias Ninguna
+Estimación 3 puntos de historia
+Prioridad Alta
+Historias y requisitos 
+relacionados Base general del proyecto
+HT-02 — Diseño e implementación de arquitectura de tres capas
+Tipo Arquitectura
+Descripción Organizar presentación React/Tailwind CSS, API REST Node.js/Express y acceso a datos 
+PostgreSQL; distinguir rutas, middleware, controladores, servicios y repositorios.
+Criterios de aceptación
+CA1. La comunicación del frontend con el backend se realiza mediante interfaz HTTP/JSON.
+CA2. Los controladores y servicios no se conectan directamente a tablas, sino mediante una 
+capa de acceso a datos definida.
+CA3. Existe un diagrama actualizado de arquitectura con sus componentes principales.
+Tareas Definir módulos y capas; organizar rutas-controladores-servicios-repositorios; documentar 
+interfaces; actualizar diagrama.
+Pruebas Prueba de conexión básica frontend-API-base de datos.
+Dependencias HT-01
+Estimación 5 puntos de historia
+Prioridad Alta
+Historias y requisitos 
+relacionados Todas las historias de usuario
+HT-03 — Modelo relacional, entidades y repositorios
+Tipo Infraestructura de producto
+Descripción
+Diseñar el modelo relacional para usuarios, perfiles, asignaturas, publicaciones, horarios, 
+disponibilidad, solicitudes, sesiones, mensajes, propuestas y transacciones, con repositorios y 
+reglas de integridad.
+Criterios de aceptación
+CA1. El diagrama entidad-relación contempla los datos necesarios para RF-01 a RF-18 y las 
+ampliaciones propuestas.
+CA2. Las restricciones y relaciones evitan duplicados e inconsistencias esenciales.
+CA3. Los repositorios permiten almacenar y recuperar datos sin incrustar SQL en 
+componentes de presentación.
+CA4. Se documenta cómo se modelan las entidades y sus relaciones.
+
+--- PAGINA 16 ---
+16
+Tareas Identificar entidades; realizar DER; definir tablas y claves; implementar acceso SQL 
+parametrizado o mecanismo de mapeo seleccionado; validar migraciones.
+Pruebas Pruebas de integridad referencial y consultas de repositorio.
+Dependencias HT-02
+Estimación 8 puntos de historia
+Prioridad Alta
+Historias y requisitos 
+relacionados HU-01 a HU-21
+HT-04 — Autenticación, autorización y protección de datos
+Tipo Arquitectura / seguridad
+Descripción Implementar autenticación de cuentas, permisos diferenciados y protección de información 
+para usuarios académicos y administrador, conforme a RNF-02.
+Criterios de aceptación
+CA1. Las contraseñas se almacenan con hash seguro, nunca en texto plano.
+CA2. Las rutas protegidas validan identidad y permiso de acceso en el backend.
+CA3. La aplicación solicita consentimiento antes de usar ubicación.
+CA4. En despliegue se utiliza HTTPS y se impide exponer credenciales en el código.
+Tareas Definir permisos; implementar registro/login y sesión o token; añadir middleware de control 
+de acceso; validar entradas y configuración segura.
+Pruebas Pruebas de acceso autorizado/no autorizado y protección de información.
+Dependencias HT-02, HT-03
+Estimación 8 puntos de historia
+Prioridad Alta
+Historias y requisitos 
+relacionados HU-01, HU-02, HU-14, HU-17; RNF-02
+HT-05 — Componentes de interfaz y cliente HTTP
+Tipo Arquitectura de presentación
+Descripción Preparar la estructura de componentes React, estilos Tailwind, formularios y cliente HTTP 
+que conecta la interfaz con la API sin incluir reglas de negocio en las pantallas.
+Criterios de aceptación
+CA1. Los módulos principales poseen rutas y componentes de interfaz diferenciados.
+CA2. Las pantallas consultan la API a través de un cliente HTTP reutilizable.
+CA3. La interfaz se adapta a pantallas de computador y móvil y permite probar Chromium y 
+Firefox.
+Tareas Construir estructura de navegación; componentes comunes; formularios; cliente HTTP; 
+manejar mensajes y estados de error.
+Pruebas Pruebas de interfaz y navegación en dos motores de navegador.
+Dependencias HT-02
+Estimación 5 puntos de historia
+
+--- PAGINA 17 ---
+17
+Prioridad Alta
+Historias y requisitos 
+relacionados HU-01 a HU-21; RNF-06
+HT-06 — Extracción y verificación de horario académico PDF
+Tipo Exploración técnica e integración
+Descripción Integrar un lector de PDF para intentar extraer bloques de clase, convertirlos en franjas 
+ocupadas y habilitar revisión/corrección manual, sin exigir inteligencia artificial.
+Criterios de aceptación
+CA1. Ante PDF con información textual reconocible se obtienen bloques horarios para 
+revisión.
+CA2. La aplicación no guarda el horario extraído hasta que el usuario confirma o corrige el 
+resultado.
+CA3. Ante un PDF no interpretable se permite introducir horarios manualmente.
+CA4. Las entradas inválidas o archivos no admitidos se rechazan de forma controlada.
+Tareas Evaluar formatos de PDF; probar biblioteca de extracción; normalizar horarios; construir 
+revisión manual; registrar errores de lectura.
+Pruebas Pruebas con PDF textual, ambiguo e ilegible; caso de registro manual.
+Dependencias HT-03, HU-07
+Estimación 8 puntos de historia
+Prioridad Alta
+Historias y requisitos 
+relacionados HU-06; RF-06, RF-07, OR-02
+HT-07 — Motor de compatibilidad de horarios y cercanía
+Tipo Lógica de negocio
+Descripción Programar reglas deterministas de coincidencia por asignatura e intervalos de disponibilidad, 
+con distancia o zona como criterio adicional voluntario.
+Criterios de aceptación
+CA1. La recomendación filtra por asignatura y compara intersecciones de disponibilidad 
+válidas.
+CA2. La cercanía solo modifica la prioridad de resultados cuando existe autorización o zona 
+registrada.
+CA3. Sin geolocalización, la recomendación sigue funcionando por asignatura y horario.
+CA4. Las pruebas con casos preparados muestran resultados coherentes con las reglas 
+documentadas.
+Tareas Definir reglas; implementar comparación de horarios; calcular proximidad con permiso del 
+usuario; añadir pruebas de resultados.
+Pruebas Pruebas unitarias de traslape y ausencia de traslape, materia incompatible y ubicación 
+denegada.
+Dependencias HT-03, HU-07, HU-08
+Estimación 8 puntos de historia
+Prioridad Alta
+
+--- PAGINA 18 ---
+18
+Historias y requisitos 
+relacionados HU-10, HU-11; RF-10, RF-11
+HT-08 — Reglas de solicitudes, mensajes, propuestas y sesiones
+Tipo Infraestructura de producto / lógica
+Descripción Definir estados y transiciones consistentes para solicitud, conversación previa, propuesta, 
+aceptación, reserva y sesión, diferenciando operaciones gratuitas y remuneradas.
+Criterios de aceptación
+CA1. El contacto previo puede ocurrir antes de solicitar una sesión, conforme a RF-P01.
+CA2. Las operaciones impiden confirmar dos sesiones para el mismo tutor y franja 
+incompatible.
+CA3. Los mensajes y propuestas solo pueden consultarse por participantes autorizados.
+CA4. Una propuesta remunerada no pasa a confirmada sin verificación auténtica del pago.
+Tareas Diseñar estados; relacionar solicitudes y conversaciones; validar solapamientos; preparar 
+transacciones para propuestas y sesiones.
+Pruebas Pruebas de transiciones válidas/inválidas, doble reserva y acceso a mensajes.
+Dependencias HT-03, HT-04
+Estimación 8 puntos de historia
+Prioridad Alta
+Historias y requisitos 
+relacionados HU-12 a HU-16 y HU-18 a HU-21
+HT-09 — Integración, pruebas y eficiencia de desempeño
+Tipo Calidad / evaluación
+Descripción Preparar pruebas funcionales y de integración, y medir eficiencia de desempeño de la 
+aplicación conforme al objetivo específico de evaluación basado en ISO/IEC 25010:2023.
+Criterios de aceptación
+CA1. Existe una matriz de pruebas funcionales con evidencia de resultados para módulos 
+críticos.
+CA2. En el piloto se mide si el 95 % de operaciones comunes se realizan en 3 segundos o 
+menos y recomendaciones en 5 segundos o menos (RNF-01).
+CA3. Se registran utilización de recursos y condiciones de carga evaluadas, sin afirmar 
+cumplimiento antes de medir.
+CA4. Se prueban pago exitoso, pendiente, fallido y recepción duplicada de confirmación en 
+ambiente de pruebas.
+Tareas Preparar datos; elaborar casos funcionales; ejecutar pruebas API/frontend; medir tiempos y 
+recursos; documentar resultados y limitaciones.
+Pruebas Pruebas automatizadas/manuales, escenarios de carga y pruebas sandbox de pagos.
+Dependencias HU-21, HU-15, HT-07, HT-12
+Estimación 8 puntos de historia
+Prioridad Alta
+Historias y requisitos 
+relacionados RNF-01 y objetivo de tesis ISO/IEC 25010:2023
+
+--- PAGINA 19 ---
+19
+HT-10 — Despliegue de prueba y documentación
+Tipo Infraestructura de producto
+Descripción Preparar un entorno piloto web con configuración, HTTPS y guía de 
+instalación/recuperación, según RNF-02, RNF-04 y RNF-05.
+Criterios de aceptación
+CA1. El entorno piloto cuenta con URL de acceso y utiliza HTTPS.
+CA2. La configuración no publica contraseñas ni claves del proveedor.
+CA3. Existen instrucciones de despliegue y respaldo/recuperación.
+CA4. Se define cómo observar la disponibilidad durante el piloto, contrastándola con la meta 
+de RNF-04.
+Tareas Configurar entorno; proteger variables; habilitar HTTPS; documentar despliegue; realizar 
+respaldo de prueba.
+Pruebas Prueba de acceso HTTPS, conexión a base de datos y recuperación.
+Dependencias HT-02, HT-03, HT-04
+Estimación 5 puntos de historia
+Prioridad Media
+Historias y requisitos 
+relacionados Operación del piloto; RNF-02, RNF-04, RNF-05
+HT-11 — Evaluación de pasarela de pago apta para tutores
+Tipo Spike / exploración técnica
+Descripción Comparar pasarelas disponibles para Ecuador y validar si admiten pagos de tutorías prestadas 
+por distintos tutores sin comisión propia de la plataforma ni retención manual de fondos.
+Criterios de aceptación
+CA1. Se documentan proveedores evaluados, requisitos de cuenta, tarifas de procesador y 
+condiciones de liquidación.
+CA2. Se verifica cómo se identifica al tutor destinatario y cómo este recibe el dinero, sin 
+asumir capacidades no comprobadas.
+CA3. Se identifica mecanismo seguro de confirmación del pago, acceso a pruebas y 
+tratamiento de cancelaciones/devoluciones.
+CA4. Si ninguna alternativa es viable, se registra el riesgo y la decisión pendiente de 
+autorización académica.
+Tareas Revisar documentación y condiciones locales; comparar integraciones; desarrollar prueba de 
+concepto; documentar decisión y restricciones.
+Pruebas Prueba de concepto y matriz comparativa de alternativas.
+Dependencias HT-01
+Estimación 5 puntos de historia
+Prioridad Alta
+Historias y requisitos 
+relacionados HU-20, HU-21; ampliación RF-P04, RF-P05
+
+--- PAGINA 20 ---
+20
+HT-12 — Integración de pago y comprobación segura de transacciones
+Tipo Arquitectura / integración / seguridad
+Descripción Integrar el proveedor técnicamente viable sin guardar datos de tarjeta, validar confirmaciones 
+de servidor, persistir referencias y mantener estados de pago coherentes con las sesiones.
+Criterios de aceptación
+CA1. El sistema inicia cobros solo de propuestas remuneradas aceptadas y utiliza el valor 
+aprobado.
+CA2. La sesión remunerada se confirma únicamente con la comprobación válida de pago del 
+proveedor.
+CA3. Los reintentos y las notificaciones duplicadas no crean cobros o sesiones duplicados.
+CA4. Se manejan estados pendiente, rechazado y cancelado sin afirmar pagos inexistentes.
+Tareas Crear adaptador de pasarela; establecer credenciales seguras; registrar referencias y estados; 
+validar callback/webhook; integrar con propuestas y sesiones.
+Pruebas Pruebas con entorno sandbox: éxito, error, notificación duplicada e inválida.
+Dependencias HT-11, HT-03, HT-04, HT-08, HU-19
+Estimación 13 puntos de historia
+Prioridad Alta
+Historias y requisitos 
+relacionados HU-20, HU-21; RF-P04, RF-P05
+5. PILA DEL PRODUCTO (PRODUCT BACKLOG)
+5.1 Criterios de ordenación
+El Product Backlog integra todas las historias de usuario y técnicas en un único orden de ejecución. Prioridad indica 
+la importancia del elemento; dependencia identifica lo que debe existir antes de implementarlo. La secuencia 
+propuesta respeta esas dependencias y adelanta la investigación del proveedor de pagos para detectar riesgos antes de 
+integrar cobros. Cada incremento corresponde a dos semanas dentro del plazo referencial de dieciséis semanas.
+Este backlog no duplica el esfuerzo: cada HU y cada HT aparece una sola vez. Las HT habilitan funcionalidades pero 
+no sustituyen las HU. La distribución temporal es una propuesta y debe reevaluarse si la velocidad de trabajo o la 
+selección de la pasarela requieren más tiempo.
+5.2 Lista priorizada
+PB Historia Elemento Tipo Prioridad Pts Depende de Sem.
+PB-01 HT-01 Preparación del entorno de 
+desarrollo Técnica Alta 3 Ninguna 1-2
+PB-02 HT-02 Diseño e implementación de 
+arquitectura de tres capas Técnica Alta 5 HT-01 1-2
+PB-03 HT-05 Componentes de interfaz y 
+cliente HTTP Técnica Alta 5 HT-02 1-2
+PB-04 HT-11 Evaluación de pasarela de pago 
+apta para tutores Técnica Alta 5 HT-01 1-2
+PB-05 HT-03 Modelo relacional, entidades y 
+repositorios Técnica Alta 8 HT-02 3-4
+
+--- PAGINA 21 ---
+21
+PB Historia Elemento Tipo Prioridad Pts Depende de Sem.
+PB-06 HT-04 Autenticación, autorización y 
+protección de datos Técnica Alta 8 HT-02, HT-03 3-4
+PB-07 HU-01 Registro de estudiante Usuario Alta 5 HT-03, HT-04, HT-05 3-4
+PB-08 HU-02 Inicio y cierre de sesión Usuario Alta 5 HU-01, HT-04, HT-05 3-4
+PB-09 HU-03 Consulta y actualización de 
+perfil Usuario Alta 3 HU-02, HT-03 5-6
+PB-10 HU-04 Publicación de tutorías Usuario Alta 5 HU-03, HT-03 5-6
+PB-11 HU-05 Gestión de publicaciones Usuario Media 3 HU-04 5-6
+PB-12 HU-08 Búsqueda de tutores por 
+asignatura Usuario Alta 5 HU-04, HT-03 5-6
+PB-13 HU-07 Registro manual de 
+disponibilidad Usuario Alta 5 HU-02, HT-03 7-8
+PB-14 HT-06 Extracción y verificación de 
+horario académico PDF Técnica Alta 8 HT-03, HU-07 7-8
+PB-15 HU-06 Carga y confirmación de horario 
+PDF Usuario Alta 8 HU-07, HT-06 7-8
+PB-16 HU-09 Consulta de información del 
+tutor Usuario Alta 3 HU-08, HU-07 7-8
+PB-17 HT-07 Motor de compatibilidad de 
+horarios y cercanía Técnica Alta 8 HT-03, HU-07, HU-08 9-10
+PB-18 HT-08 Reglas de solicitudes, mensajes, 
+propuestas y sesiones Técnica Alta 8 HT-03, HT-04 9-10
+PB-19 HU-10 Recomendación por 
+coincidencia horaria Usuario Alta 8 HU-07, HU-08, HT-07 9-10
+PB-20 HU-11 Priorización por cercanía 
+voluntaria Usuario Media 3 HU-10, HT-07 9-10
+PB-21 HU-12 Solicitud de tutoría Usuario Alta 5 HU-09, HU-07, HT-08 9-10
+PB-22 HU-13 Respuesta y ajuste de solicitudes Usuario Alta 5 HU-12, HT-08 11-12
+PB-23 HU-14 Mensajería y contacto previo Usuario Alta 5 HU-09, HT-08 11-12
+PB-24 HU-15 Consulta de sesiones y estados Usuario Alta 3 HU-12, HU-13, HT-08 11-12
+PB-25 HU-16 Cancelación o reprogramación 
+de sesión Usuario Media 5 HU-15, HU-13, HT-08 11-12
+PB-26 HU-17 Administración básica Usuario Media 5 HU-02, HT-04, HT-08 11-12
+PB-27 HU-18 Envío de propuesta 
+personalizada Usuario Alta 5 HU-14, HU-07, HT-08 11-12
+PB-28 HU-19 Aceptación o rechazo de 
+propuesta Usuario Alta 5 HU-18, HT-08 13-14
+PB-29 HT-12
+Integración de pago y 
+comprobación segura de 
+transacciones
+Técnica Alta 13 HT-11, HT-03, HT-04, 
+HT-08, HU-19 13-14
+PB-30 HT-10 Despliegue de prueba y 
+documentación Técnica Media 5 HT-02, HT-03, HT-04 13-14
+PB-31 HU-20 Pago de propuesta remunerada Usuario Alta 8 HU-19, HT-12 15-16
+
+--- PAGINA 22 ---
+22
+PB Historia Elemento Tipo Prioridad Pts Depende de Sem.
+PB-32 HU-21 Verificación y consulta del 
+estado de pago Usuario Alta 5 HU-20, HT-12, HT-08 15-16
+PB-33 HT-09 Integración, pruebas y eficiencia 
+de desempeño Técnica Alta 8 HU-21, HU-15, HT-07, 
+HT-12 15-16
+5.3 Plan incremental (16 semanas)
+Semanas Objetivo Historias previstas Pts
+1–2 Arquitectura inicial y evaluación temprana de 
+pagos HT-01, HT-02, HT-05, HT-11 18
+3–4 Persistencia, seguridad y acceso HT-03, HT-04, HU-01, HU-02 26
+5–6 Perfil, publicaciones y búsqueda de tutorías HU-03, HU-04, HU-05, HU-08 16
+7–8 Horarios manuales, PDF e información del 
+tutor HU-07, HT-06, HU-06, HU-09 24
+9–10 Compatibilidad, cercanía y solicitud inicial HT-07, HT-08, HU-10, HU-11, HU-12 32
+11–12 Coordinación, mensajería, sesiones, 
+administración y propuestas HU-13, HU-14, HU-15, HU-16, HU-17, HU-18 28
+13–14 Aceptación de propuestas, integración de pagos 
+y piloto HU-19, HT-12, HT-10 23
+15–16 Pago de usuario, verificación y evaluación final 
+de desempeño HU-20, HU-21, HT-09 21
+Esfuerzo preliminar total: 21 historias de usuario (104 puntos) + 12 historias técnicas (84 puntos) = 33 elementos y 
+188 puntos. Los puntos no equivalen a horas ni prueban que el alcance pueda completarse en dieciséis semanas. La 
+integración de pagos es un riesgo relevante y su compromiso productivo requiere el resultado de HT-11.
+6. MATRIZ DE TRAZABILIDAD RF → HU → HT
+Requisito Origen Historia(s) de usuario Soporte técnico Ítem(s) PB de HU
+RF-01 Original HU-01 HT-03, HT-04, HT-05 PB-07
+RF-02 Original HU-02 HT-04, HT-05 PB-08
+RF-03 Original HU-03 HT-03, HT-05 PB-09
+RF-04 Original HU-04 HT-03, HT-05 PB-10
+RF-05 Original HU-05 HT-03, HT-05 PB-11
+RF-06 Original HU-06 HT-06 PB-15
+RF-07 Original HU-06 HT-06 PB-15
+RF-08 Original HU-07 HT-03, HT-05 PB-13
+RF-09 Original HU-08 HT-03, HT-05 PB-12
+RF-10 Original HU-10 HT-07 PB-19
+RF-11 Original HU-11 HT-07 PB-20
+
+--- PAGINA 23 ---
+23
+Requisito Origen Historia(s) de usuario Soporte técnico Ítem(s) PB de HU
+RF-12 Original HU-09 HT-03, HT-05 PB-16
+RF-13 Original HU-12 HT-08 PB-21
+RF-14 Original HU-13 HT-08 PB-22
+RF-15 Original HU-14 HT-04, HT-08 PB-23
+RF-16 Original HU-15 HT-08 PB-24
+RF-17 Original HU-16 HT-08 PB-25
+RF-18 Original HU-17 HT-04, HT-08 PB-26
+RF-P01 Propuesto HU-14 HT-04, HT-08 PB-23
+RF-P02 Propuesto HU-18 HT-08 PB-27
+RF-P03 Propuesto HU-19 HT-08 PB-28
+RF-P04 Propuesto HU-20 HT-11, HT-12 PB-31
+RF-P05 Propuesto HU-21 HT-12 PB-32
+Nota de trazabilidad: la matriz muestra relación funcional y soporte técnico principal. Otras HT transversales (HT-01, 
+HT-02, HT-09 y HT-10) aplican a todo el producto. RF-P01 amplía expresamente RF-15; no cambia los contenidos 
+RF-10, RF-11 o RF-12 de la ERS original.
+7. VALIDACIÓN, RIESGOS Y ELEMENTOS PENDIENTES
+7.1 Comprobaciones realizadas: se representan los dieciocho requisitos funcionales originales sin cambiar su 
+numeración; las cinco ampliaciones se identifican como propuestas; los resúmenes muestran prioridad y 
+dependencias; se verificó que los treinta y tres elementos del backlog figuran una sola vez y que ninguno se programa 
+antes que una dependencia declarada.
+7.2 A validar antes de implementar pagos: elección real del proveedor para Ecuador, titularidad de las cuentas 
+receptoras, aceptación de tutores como prestadores, tarifas del procesador, devoluciones y tratamiento de 
+cancelaciones. La plataforma no retiene fondos ni cobra comisión en la primera versión. Si la integración no resulta 
+viable, debe registrarse la limitación y consultar al docente antes de modificar el alcance.
+7.3 Riesgos de calendario: los incrementos concentran esfuerzo relativo diferente; no existe aún medición de 
+velocidad de desarrollo. Se recomienda revisar el plan tras los primeros incrementos y ejecutar pruebas desde cada 
+entrega, aunque HT-09 consolide la evaluación final.
+7.4 Control académico: los objetivos de tesis se transcriben sin cambios. Las nuevas funcionalidades requieren 
+actualizar después la ERS IEEE 830, los casos de uso y la arquitectura; el presente documento no declara que esos 
+cambios ya estén aprobados formalmente.

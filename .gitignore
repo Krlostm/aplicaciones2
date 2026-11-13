@@ -1,0 +1,14 @@
+node_modules/
+**/dist/
+.env
+.env.*
+!.env.example
+!**/.env.example
+.local/
+test-results/
+playwright-report/
+*.log
+docs/evidencias/*.json
+docs/evidencias/*.txt
+docs/evidencias/*.tap
+.DS_Store

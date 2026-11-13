@@ -1,0 +1,611 @@
+  
+
+
+ESCUELA SUPERIOR POLITÉCNICA DE CHIMBORAZO 
+FACULTAD DE INFORMÁTICA Y ELECTRÓNICA
+CARRERA SOFTWARE
+ANTEPROYECTO DEL TRABAJO DE GRADO
+Título:
+Desarrollo de una aplicación web para gestionar tutorías académicas entre estudiantes universitarios  
+
+Presentado por: Toa Chávez Carlos Javier
+
+Director(a): Layedra Larrea Natalia Patricia
+Opción y modalidad del Trabajo:
+
+
+
+
+
+Fecha de Presentación:   30/04/2026
+
+
+RIOBAMBA – ECUADOR
+
+1.	TÍTULO DE LA PROPUESTA DEL TRABAJO DE GRADO
+
+Desarrollo de una aplicación web para gestionar tutorías académicas entre estudiantes universitarios. 
+
+2.	LÍNEAS Y PROGRAMAS DE INVESTIGACIÓN - ESPOCH
+
+
+3.	INFORMACIÓN GENERAL
+3.1	PROPONENTE:
+
+NOMBRE: 			Carlos Javier Toa Chávez
+CÉDULA: 			1805362272
+CÓDIGO: 			7453
+E-MAIL INSTITUCIONAL: 	carlosj.toa@espoch.edu.ec
+TELÉFONO: 			0995416051
+
+3.2	DIRECTOR(a) DEL TRABAJO DE GRADO: 
+
+NOMBRE: 			Natalia Patricia Layedra Larrea
+CÉDULA: 			0603304619
+E-MAIL INSTITUCIONAL: 	nlayedra@espoch.edu.ec
+
+3.3	EMPRESA / INSTITUCIÓN DONDE SE APLICARÁ EL TRABAJO:  	
+NA
+4.	FORMULACIÓN GENERAL DEL TRABAJO DE GRADO
+
+4.1	PLANTEAMIENTO DEL PROBLEMA
+
+
+4.1.1	ANTECEDENTES
+
+En la actualidad, las tecnologías de información y comunicación (TIC) han transformado la educación. Se van creando espacios virtuales. Estos espacios facilitan el aprendizaje, propician la interacción de los alumnos. Las universidades utilizan aplicaciones informáticas para facilitar el aprendizaje. Existen sistemas para gestionar la enseñanza, existen aulas de clase virtuales, existen cursos a través de internet. El propósito es facilitar la enseñanza y el aprendizaje, el deseo es promover la autodidacticidad de los alumnos. Estas herramientas son determinantes, por cuanto permiten profundizar en el aprendizaje de una mayor cantidad de gente. Se adaptan a lo que demanda una educación en la actualidad.
+
+Por tanto, se han ido realizando investigaciones. Estas investigaciones han utilizado herramientas tecnológicas para el aprendizaje. En la Escuela Superior Politécnica de Chimborazo, Hidalgo Allauca (2017) llevó a cabo un diseño de un curso de las categorías MOOC. La idea era que la participación del alumno fuera sencilla para conseguir acceder a las clases. Utilizaron una plataforma informática. Las conclusiones de su trabajo muestran que la tecnología es positiva para el aprendizaje. Al mismo tiempo, mejora la forma de comunicarse la gente a través de internet.
+
+De igual forma, por fuera de esa escuela, Tapia López (2019) hizo un estudio. Creó un sitio web. Este sitio era para dar tutorías. Buscaba que los estudiantes les fuera mejor. Quería que hablaran mejor entre todos en la escuela. Estos sitios ayudan a organizar las tutorías. Guardan información de los estudios. Hacen que profesores y alumnos se comuniquen mejor. Pero estos planes usan mucho la forma antigua de tutoría. El profesor es el más importante. Los alumnos no participan tanto con su conocimiento.
+
+Aunque las plataformas para aprender han mejorado mucho, no vemos aplicaciones tecnológicos hechos para que los estudiantes se unan y se ayuden con sus estudios en la universidad. Esto deja un espacio para crear herramientas. Estas herramientas usarían lo que saben unos a otros. Ayudarían a aprender juntos. Harían que los estudiantes hablaran más. Por eso, este proyecto quiere ofrecer algo nuevo. Crearemos una aplicación web. Esta aplicación ayudará a los estudiantes a encontrarse. Podrán compartir lo que saben. Así, el estudio será mejor.
+
+
+
+
+
+4.1.2	FORMULACIÓN DEL PROBLEMA 
+
+¿Cómo desarrollar una aplicación web que permita gestionar la conexión entre estudiantes universitarios para la realización de tutorías académicas, facilitando la búsqueda, organización y gestión de dichas sesiones?
+
+4.1.3	SISTEMATIZACIÓN DEL PROBLEMA
+
+Para resolver el problema principal, se plantean las siguientes interrogantes:
+
+¿Cómo identificar los requerimientos necesarios para el desarrollo de una aplicación web orientada a tutorías académicas entre estudiantes universitarios? 
+¿Cómo diseñar e implementar una aplicación web que facilite la interacción entre estudiantes y permita la búsqueda y organización de tutorías académicas según asignaturas y disponibilidad?
+¿De qué forma se puede estructurar la aplicación web para permitir la organización y gestión de sesiones de tutoría académica? 
+¿Cómo evaluar la eficiencia de desempeño de la aplicación web desarrollada? 
+
+4.2	JUSTIFICACIÓN
+
+4.2.1	JUSTIFICACIÓN TEÓRICA
+
+Este proyecto se apoya en el aprendizaje colaborativo, las TIC en educación superior, y el desarrollo de aplicaciones web. Estos tres enfoques permiten construir una base teórica sólida para una plataforma que conecte estudiantes y fomente el intercambio de conocimientos.
+
+Con respecto al aprendizaje colaborativo Johnson, Johnson y Holubec (1999) lo definen como una metodología donde los estudiantes trabajan juntos hacia objetivos comunes, fortaleciendo lo individual y lo grupal. Para ellos, hay tres pilares: interdependencia positiva, responsabilidad individual y desarrollo de habilidades sociales. Dillenbourg (1999), en cambio, pone el acento en otro lado: para él, lo clave es la 'construcción conjunta del conocimiento' mediante interacción constante. O sea, no basta con poner a varios en un grupo; tienen que interactuar activamente. Esta diferencia es importante para mi propuesta, porque la plataforma no solo conectará personas, sino que deberá incentivar esa interacción continua.
+
+Desde el constructivismo, el aprendizaje no es algo que 'se recibe', sino que se genera socialmente. Vygotsky (1978) ya decía que el desarrollo cognitivo depende de la interacción con otros. Su 'zona de desarrollo próximo' lo que uno puede hacer con ayuda es clave para entender por qué las tutorías entre pares funcionan. Gokhale (1995) lo confirma con datos: el aprendizaje entre pares mejora el pensamiento crítico y la comprensión de contenidos. Sin embargo, estos estudios tienen décadas. Su vigencia en entornos digitales se evidencia en investigaciones recientes (García-Valcárcel & Basilotta, 2020) sugieren que sí, pero con matices: la tecnología puede potenciar o entorpecer la colaboración según cómo se diseñe.
+
+En cuanto a las TIC, Cabero y Llorente (2015) señalan que facilitan la comunicación, el acceso a información y los espacios colaborativos. UNESCO (2023) señala que las tecnologías digitales permiten ampliar el acceso al aprendizaje y reducir barreras de tiempo y espacio dentro de los entornos educativos virtuales. Pero aquí hay un problema que no mencionan directamente: la mayoría de plataformas existentes (Moodle, Teams, Google Classroom) están diseñadas desde una lógica docente-centrista. El estudiante sigue siendo un receptor más que un constructor activo. Ese sesgo de diseño es justo lo que esta propuesta quiere cuestionar.
+
+En el contexto universitario, muchos estudiantes presentan dificultades en determinadas asignaturas y, ante la falta de mecanismos organizados de apoyo académico, suelen recurrir a compañeros, grupos de mensajería o contactos personales para resolver sus dudas. Esta dinámica informal puede generar desorganización, falta de seguimiento y limitaciones para acceder oportunamente a tutorías académicas. Por ello, resulta necesario fundamentar una propuesta tecnológica que permita estructurar la conexión entre estudiantes y fortalecer el aprendizaje colaborativo mediante una aplicación web.
+
+Desde el enfoque tecnológico, el desarrollo de la aplicación web requiere herramientas que permitan construir una solución accesible, escalable y adaptable al entorno universitario. Para el desarrollo del backend se utilizará Node.js, debido a su capacidad para gestionar múltiples solicitudes de manera eficiente y facilitar la construcción de aplicaciones web modernas. En cuanto al almacenamiento de información, PostgreSQL permitirá administrar los datos relacionados con usuarios, tutorías y sesiones académicas mediante un modelo relacional que garantice integridad y organización de la información.
+
+Para el desarrollo de la interfaz gráfica se emplearán HTML, CSS y Tailwind CSS, tecnologías orientadas a la construcción de interfaces web responsivas y accesibles desde distintos dispositivos. Además, el uso de aplicaciones web permite ventajas importantes dentro del entorno educativo, como acceso remoto, disponibilidad multiplataforma, facilidad de actualización y mayor interacción entre usuarios, favoreciendo así la organización y gestión de tutorías académicas entre estudiantes universitarios.
+
+Por eso, a pesar del avance tecnológico, persiste un vacío: faltan herramientas pensadas desde el aprendizaje entre pares, no desde la enseñanza unilateral. Este proyecto intenta llenar ese vacío con una aplicación web para tutorías académicas entre estudiantes, integrando teorías colaborativas con un uso intencionado de las TIC.
+
+4.2.2	JUSTIFICACIÓN APLICATIVA
+
+Esta investigación se justifica desde lo aplicativo. Esto significa que el proyecto no se limita a la teoría. Se busca implementar una solución real, una herramienta tecnológica que mejore el acceso al apoyo académico en la universidad. Porque hoy el problema es concreto.
+
+Con la aplicación web que propongo, eso cambia. La plataforma centraliza quién necesita ayuda y quién puede darla. Conecta a estudiantes que buscan apoyo con otros que ya dominan ciertas asignaturas. Desde ahí, cada usuario puede gestionar su perfil, agendar tutorías, coordinar horarios y hablar directamente con otros. Buscar y organizar apoyo académico se vuelve más rápido, más ordenado.
+
+Hay otro beneficio. No solo ayudan los profesores. Los mismos estudiantes destacados pueden enseñar. Y no solo eso: también pueden generar ingresos. Horarios flexibles, sin presiones. Eso les da un alivio económico y al mismo tiempo hace que el apoyo académico sea más accesible para todos.
+
+Para su implementación, la aplicación web se dividirá en los siguientes módulos:
+
+Módulo de usuarios: permitirá el registro, inicio de sesión y gestión de perfiles de estudiantes.
+Módulo de tutorías: permitirá publicar, consultar y buscar tutorías académicas según asignatura.
+Módulo de horarios: facilitará la organización de disponibilidad y coordinación de sesiones.
+Módulo de comunicación: permitirá la interacción entre estudiantes para acordar tutorías.
+Módulo de gestión: permitirá administrar la información relacionada con usuarios, tutorías y sesiones académicas.
+
+Con estos módulos se busca reducir la dependencia de métodos informales y ofrecer una alternativa más organizada, escalable y fácil de usar para gestionar tutorías académicas entre estudiantes.
+El proyecto está alineado con la línea de investigación "Software" de la Carrera de Software de la ESPOCH. Y también aporta a los ODS. El ODS 4, porque mejora la educación entre pares. El ODS 9, porque usa tecnología web para servicios académicos. El ODS 10, porque democratiza el acceso al apoyo, sin importar quién eres o cuánto tienes. En resumen, el implementar esta aplicación web impacta. Mejora el acceso al conocimiento, hace que los estudiantes se relacionen mejor, y fortalece el aprendizaje con tecnología digital. No es solo una página web. Es una herramienta con propósito.
+
+4.3	OBJETIVOS
+
+4.3.1	OBJETIVO GENERAL
+
+Desarrollar una aplicación web para gestionar tutorías académicas entre estudiantes universitarios.
+
+4.3.2	OBJETIVOS ESPECÍFICOS
+
+Determinar los requerimientos funcionales y no funcionales de la aplicación web de tutorías académicas entre estudiantes universitarios, mediante técnicas de recolección de información y definición de historias de usuario. 
+Diseñar la arquitectura del sistema, las interfaces de usuario (UI/UX) y el modelo de datos relacional de la aplicación web de tutorías académicas, mediante el uso de diagramas UML, herramientas de prototipado y modelado entidad-relación.
+Desarrollar los módulos de la aplicación, utilizando tecnologías web y un enfoque de desarrollo incremental.
+Evaluar la eficiencia de desempeño de la aplicación web mediante pruebas basadas en la norma ISO/IEC 25010:2023
+
+4.4	MARCO TEÓRICO
+
+El marco teórico del presente trabajo de grado reúne los fundamentos conceptuales, educativos y tecnológicos que sustentan el desarrollo de una aplicación web para gestionar tutorías académicas entre estudiantes universitarios. La propuesta se apoya en el aprendizaje colaborativo, las tutorías académicas, el uso de las Tecnologías de la Información y Comunicación (TIC), las aplicaciones web, la arquitectura cliente-servidor, las bases de datos relacionales, las tecnologías de desarrollo web, la ingeniería de software, el modelo de desarrollo incremental y la eficiencia de desempeño como característica de evaluación de calidad del software.
+
+Estos fundamentos permiten comprender el problema desde una perspectiva educativa y tecnológica. Por una parte, explican la importancia de la interacción entre estudiantes como mecanismo de apoyo académico. Por otra, orientan la construcción de una solución informática capaz de organizar usuarios, tutorías, horarios, sesiones y comunicación entre participantes. De esta manera, el marco teórico establece la base necesaria para justificar el diseño, desarrollo y evaluación de la aplicación web propuesta.
+
+4.4.1 Aprendizaje colaborativo
+
+El aprendizaje colaborativo es un enfoque educativo en el que los estudiantes participan activamente en la construcción conjunta del conocimiento. A diferencia de los modelos centrados únicamente en la transmisión de información, este enfoque promueve la interacción, la responsabilidad compartida y la participación de los estudiantes en la resolución de problemas o actividades académicas. Dillenbourg (1999) señala que el aprendizaje colaborativo no se limita a reunir estudiantes en un mismo grupo, sino que implica una interacción orientada a la construcción compartida de significados.
+
+Desde la perspectiva del aprendizaje cooperativo, Johnson, Johnson y Holubec (1999) sostienen que la colaboración efectiva requiere elementos como interdependencia positiva, responsabilidad individual, interacción promotora, habilidades sociales y evaluación grupal. Estos componentes permiten que los participantes no solo trabajen juntos, sino que comprendan que el logro individual está relacionado con el avance del grupo. En el contexto universitario, este principio resulta relevante porque los estudiantes pueden apoyarse mutuamente para reforzar contenidos, resolver dudas y mejorar su desempeño académico.
+
+El fundamento sociocultural de Vygotsky (1978) también permite comprender la importancia de la interacción entre pares. Su concepto de zona de desarrollo próximo explica que una persona puede alcanzar niveles superiores de aprendizaje cuando recibe apoyo de alguien con mayor dominio del tema. En el caso de las tutorías académicas entre estudiantes, este principio se evidencia cuando un estudiante con conocimientos sólidos en una asignatura orienta a otro que presenta dificultades, generando un proceso de aprendizaje mediado por la interacción social.
+
+Asimismo, Gokhale (1995) demostró que el aprendizaje colaborativo favorece el pensamiento crítico, especialmente cuando los estudiantes participan en actividades donde deben analizar, discutir y resolver problemas de manera conjunta. Esto resulta importante para el presente proyecto, ya que la aplicación web propuesta no busca únicamente registrar tutorías, sino facilitar espacios de apoyo académico donde los estudiantes puedan interactuar, compartir conocimientos y fortalecer su aprendizaje.
+
+En consecuencia, el aprendizaje colaborativo constituye una base teórica central para este trabajo, porque respalda la idea de que los estudiantes universitarios pueden convertirse en agentes activos de apoyo académico. La aplicación web propuesta permitirá organizar esta interacción mediante perfiles, publicación de tutorías, coordinación de horarios y comunicación entre estudiantes, contribuyendo a que el aprendizaje entre pares sea más accesible y estructurado.
+
+4.4.2 Tutorías académicas
+
+Las tutorías académicas son estrategias de acompañamiento educativo orientadas a fortalecer el aprendizaje de los estudiantes. Estas permiten resolver dudas, reforzar contenidos, mejorar el rendimiento académico y brindar apoyo en asignaturas que presentan mayor dificultad. Tinto (2012) destaca que el apoyo académico oportuno es un elemento importante para mejorar la permanencia estudiantil y reducir dificultades asociadas al abandono de los estudios en educación superior.
+Las tutorías pueden desarrollarse de forma individual, grupal o virtual, dependiendo del número de participantes, la modalidad de interacción y las necesidades académicas de los estudiantes. En la Tabla 1 se mantiene la clasificación general de estas modalidades, diferenciando sus características y ventajas dentro del proceso de apoyo académico.
+Tabla 1. Tipos de tutorías académicas
+
+Fuente: Elaboración propia con base en Tinto (2012)
+
+Esta clasificación permite comprender que las tutorías no responden a un único formato, sino que pueden adaptarse a distintos contextos y necesidades de aprendizaje. En la educación superior, las tutorías entre estudiantes o tutorías entre pares adquieren relevancia porque permiten aprovechar el conocimiento de estudiantes que dominan determinadas asignaturas para apoyar a otros compañeros.
+Falchikov (2001) señala que el aprendizaje entre pares favorece tanto al estudiante que recibe apoyo como al tutor, debido a que este último refuerza su conocimiento al explicarlo, organizarlo y aplicarlo en situaciones concretas. Este enfoque es coherente con el presente proyecto, porque la aplicación web busca facilitar la conexión entre estudiantes que requieren apoyo académico y estudiantes que pueden ofrecerlo.
+García Aretio (2014) sostiene que los entornos virtuales y la educación mediada por tecnologías amplían las posibilidades de acceso al conocimiento, ya que permiten superar barreras de tiempo y espacio. Este planteamiento se relaciona directamente con las tutorías académicas gestionadas mediante una aplicación web, debido a que los estudiantes pueden publicar, buscar y coordinar apoyo académico de manera más flexible.
+Por tanto, las tutorías académicas constituyen un componente esencial del presente proyecto. Su gestión mediante una aplicación web permitiría pasar de una dinámica informal, basada en contactos personales o grupos de mensajería, hacia un proceso más organizado, con información centralizada, perfiles de estudiantes, disponibilidad horaria y seguimiento de sesiones de apoyo académico.
+
+4.4.3 Tecnologías de la Información y Comunicación (TIC) en la educación
+
+Las Tecnologías de la Información y Comunicación (TIC) han transformado los procesos educativos al facilitar el acceso a información, la comunicación entre participantes y la creación de entornos de aprendizaje más flexibles. Cabero Almenara y Llorente Cejudo (2015) señalan que las TIC no deben entenderse únicamente como herramientas técnicas, sino como recursos que pueden generar nuevos escenarios formativos y favorecer metodologías centradas en el estudiante.
+En educación superior, las TIC permiten ampliar las oportunidades de aprendizaje mediante plataformas digitales, recursos multimedia, aulas virtuales, herramientas colaborativas y sistemas de gestión académica. La UNESCO (2023) indica que la tecnología puede contribuir a mejorar el acceso al aprendizaje y reducir barreras, siempre que su implementación responda a necesidades educativas reales y no se limite a la simple incorporación de herramientas digitales.
+La comparación entre educación tradicional y educación apoyada en TIC se mantiene en la Tabla 2 del anteproyecto. Esta tabla permite observar diferencias relacionadas con el acceso a la información, la interacción, el rol del estudiante, la flexibilidad y el enfoque del aprendizaje. Dichos criterios son importantes para justificar una aplicación web orientada al apoyo académico, ya que el sistema propuesto busca mejorar la interacción entre estudiantes y facilitar la organización de tutorías mediante medios digitales.
+Tabla 2. Comparación entre educación tradicional y educación apoyada en TIC
+
+Fuente: Elaboración propia con base en Cabero y Llorente (2015)
+
+La incorporación de las TIC en el desarrollo de soluciones tecnológicas orientadas al apoyo académico resulta fundamental para responder a las necesidades actuales de los estudiantes universitarios. La implementación de herramientas digitales que faciliten la conexión entre estudiantes para la realización de tutorías académicas permite mejorar el acceso al conocimiento, optimizar la comunicación y fomentar entornos de aprendizaje colaborativo en el ámbito universitario.
+De igual manera, Villón Asencio et al. (2024) evidencian que el aprendizaje colaborativo mediado por recursos educativos puede fortalecer la comprensión y participación estudiantil. Revelo-Rosero (2023), por su parte, sostiene que las herramientas de la Web 2.0 favorecen la interacción académica, el aprendizaje flexible y la participación activa de los estudiantes en entornos universitarios virtuales. Estos aportes respaldan la pertinencia de una aplicación web orientada a gestionar tutorías académicas entre estudiantes universitarios.
+
+4.4.4 Aplicaciones web
+
+Las aplicaciones web son sistemas informáticos que se ejecutan mediante un navegador y permiten al usuario acceder a sus funcionalidades sin requerir instalación local en cada dispositivo. Este tipo de aplicaciones se apoya en una arquitectura cliente-servidor, donde el cliente presenta la interfaz de interacción y el servidor procesa solicitudes, ejecuta la lógica de negocio y gestiona el acceso a los datos.
+Actualmente, las aplicaciones web se han posicionado como soluciones tecnológicas ampliamente utilizadas debido a su accesibilidad, compatibilidad multiplataforma, facilidad de actualización y capacidad de adaptación. León-Velarde (2024) señala que este tipo de aplicaciones resulta útil en contextos educativos, debido a que facilita la gestión de información, el acceso remoto y la organización de procesos académicos.
+Una ventaja importante de las aplicaciones web es que pueden utilizarse desde computadoras, tabletas o teléfonos con acceso a internet, lo cual amplía la disponibilidad del sistema para diferentes usuarios. Además, las actualizaciones se realizan de manera centralizada, evitando que cada usuario deba instalar nuevas versiones en su dispositivo. En entornos educativos, esta característica resulta relevante porque permite que estudiantes y administradores accedan a la misma versión del sistema de forma continua.
+La comparación entre aplicaciones web y aplicaciones de escritorio se mantiene en la Tabla 3 del anteproyecto. Esta comparación permite identificar diferencias relacionadas con instalación, acceso, actualizaciones, portabilidad y uso educativo.
+Tabla 3. Comparación entre aplicaciones web y aplicaciones de escritorio
+
+Fuente: Elaboración propia con base en León-Velarde (2024)
+
+En este contexto, el desarrollo de una aplicación web dirigida a la gestión de tutorías académicas representa una solución pertinente para facilitar la conexión entre estudiantes dentro del entorno universitario. Su implementación permitiría mejorar el acceso a la información, optimizar la comunicación entre usuarios y organizar sesiones de apoyo académico, contribuyendo al fortalecimiento del aprendizaje colaborativo y al acceso más ordenado a recursos de apoyo académico.
+
+4.4.5 Arquitectura cliente-servidor
+
+La arquitectura cliente-servidor es un modelo de organización de aplicaciones en el que las funciones se distribuyen entre dos componentes principales: el cliente y el servidor. El cliente corresponde a la parte con la que interactúa el usuario, generalmente mediante un navegador web; mientras que el servidor se encarga de procesar las solicitudes, ejecutar la lógica de la aplicación, comunicarse con la base de datos y devolver la información requerida.
+En una aplicación web, la comunicación entre cliente y servidor se realiza comúnmente mediante el protocolo HTTP. MDN Web Docs (2026) explica que HTTP permite el intercambio de datos en la web bajo un modelo de solicitud y respuesta, donde el navegador solicita recursos o servicios y el servidor entrega una respuesta. Este funcionamiento permite operaciones como iniciar sesión, consultar información, registrar datos o buscar tutorías dentro de la aplicación.
+IBM (2024) señala que, en la configuración cliente-servidor, las aplicaciones cliente envían solicitudes de servicios o datos, mientras que el servidor responde con la información necesaria. Este modelo permite estructurar el desarrollo de aplicaciones en capas, separando la presentación, la lógica de negocio y la gestión de datos. Gutiérrez (2023) también resalta que la arquitectura de aplicaciones web es relevante porque influye en la escalabilidad, el mantenimiento y la organización general del sistema.
+La arquitectura de tres niveles descrita por IBM (2025) permite comprender esta separación de responsabilidades: la capa de presentación corresponde al frontend, la capa de lógica de aplicación corresponde al backend y la capa de datos corresponde a la base de datos. Esta estructura es adecuada para el presente proyecto porque permite organizar de forma independiente la interfaz de usuario, el procesamiento de tutorías y el almacenamiento de información académica.
+La Tabla 4 del anteproyecto mantiene los componentes principales de la arquitectura cliente-servidor y su aplicación dentro del proyecto.
+
+
+Tabla 4. Componentes de la arquitectura cliente-servidor
+
+
+Fuente: Elaboración propia con base en MDN Web Docs (2026) e IBM (2024).
+
+En el desarrollo de la aplicación web de tutorías académicas, esta arquitectura permitirá que los estudiantes interactúen con el sistema desde el navegador, mientras el servidor gestionará procesos como registro de usuarios, publicación de tutorías, coordinación de horarios, comunicación entre estudiantes y consulta de información almacenada en la base de datos.
+
+4.4.6. Bases de datos relacionales
+
+Las bases de datos relacionales permiten almacenar, organizar y administrar información mediante tablas relacionadas entre sí. Este modelo facilita la integridad de los datos, la reducción de redundancia y la consulta estructurada de información. En una aplicación web, la base de datos cumple un papel fundamental porque conserva los registros necesarios para que el sistema funcione de forma ordenada y consistente.
+El objetivo específico relacionado con el diseño del modelo de datos relacional requiere fundamentar el uso de este tipo de estructura. En el presente proyecto, la información asociada a estudiantes, perfiles, asignaturas, tutorías, horarios y sesiones académicas puede representarse mediante entidades y relaciones. Por ello, el modelado entidad-relación permitirá definir la estructura lógica de la base de datos antes de su implementación.
+PostgreSQL Global Development Group (s.f.) describe PostgreSQL como un sistema de gestión de bases de datos relacional de código abierto, orientado a la robustez, extensibilidad y cumplimiento de estándares. Su uso resulta pertinente para este proyecto porque permite administrar información estructurada y mantener relaciones entre los diferentes elementos de la aplicación, como usuarios, tutorías, horarios y sesiones.
+En el desarrollo de la aplicación web propuesta, PostgreSQL permitirá organizar los datos de manera consistente, facilitando operaciones como registrar usuarios, consultar tutorías disponibles, almacenar horarios, actualizar perfiles y recuperar información de sesiones académicas. De esta forma, la base de datos relacional contribuirá al funcionamiento ordenado de la aplicación y al cumplimiento de los requerimientos definidos.
+
+4.4.7 Tecnologías de desarrollo web
+
+El desarrollo de aplicaciones web requiere la integración de tecnologías orientadas al frontend, al backend y a la gestión de datos. El frontend corresponde a la parte visible de la aplicación, es decir, la interfaz mediante la cual los usuarios interactúan con el sistema. El backend procesa las solicitudes, aplica la lógica de negocio y se comunica con la base de datos. Esta separación permite organizar el desarrollo de forma modular y facilita el mantenimiento del sistema.
+Para la construcción de la interfaz se emplearán HTML, CSS y Tailwind CSS. HTML permite estructurar el contenido de las páginas web, mientras que CSS define la presentación visual de los elementos. Tailwind Labs (s.f.) presenta Tailwind CSS como un framework de utilidad para construir interfaces mediante clases reutilizables, lo cual puede facilitar el diseño de componentes responsivos y consistentes dentro de la aplicación.
+En el backend se utilizará Node.js. OpenJS Foundation (s.f.) describe Node.js como un entorno de ejecución de JavaScript orientado a la construcción de aplicaciones escalables y de red. Su uso en este proyecto permitirá gestionar solicitudes del usuario, procesar acciones relacionadas con tutorías, manejar autenticación y conectar la aplicación con la base de datos.
+Estas tecnologías se relacionan directamente con el tercer objetivo específico del proyecto, orientado al desarrollo de módulos funcionales mediante tecnologías web y un enfoque incremental. La combinación de HTML, CSS, Tailwind CSS, Node.js y PostgreSQL permitirá implementar módulos de usuarios, tutorías, horarios, comunicación y gestión de manera progresiva.
+
+4.4.8 Ingeniería de software
+
+La ingeniería de software es una disciplina orientada a la aplicación de métodos, procesos, técnicas y herramientas para el desarrollo de sistemas informáticos de calidad. No se limita a la codificación, sino que incluye actividades como análisis de requerimientos, diseño, implementación, pruebas, mantenimiento y gestión del proyecto. Pressman y Maxim (2020) señalan que la aplicación de procesos estructurados de ingeniería de software permite desarrollar sistemas más mantenibles, escalables y alineados con las necesidades de los usuarios.
+El proceso de desarrollo de software se estructura en etapas que permiten construir soluciones de manera ordenada y sistemática. Estas fases incluyen el análisis de requerimientos, donde se identifican las necesidades del usuario; el diseño del sistema, donde se define su arquitectura y estructura; la implementación, donde se desarrolla el código; las pruebas, donde se verifica el funcionamiento; y el mantenimiento, que permite realizar mejoras posteriores.
+Sommerville (2011) sostiene que el uso de procesos y buenas prácticas de ingeniería de software contribuye a construir sistemas más confiables, comprensibles y adaptables. En el caso de aplicaciones web, estos principios son importantes porque permiten organizar la interacción entre interfaz de usuario, lógica de negocio y almacenamiento de datos, evitando desarrollos improvisados o difíciles de mantener.
+La Tabla 5 del anteproyecto mantiene las fases generales del desarrollo de software y permite relacionarlas con las actividades previstas en este proyecto.
+Tabla 5. Fases del desarrollo de software
+
+Fuente: Elaboración propia
+
+En este contexto, la aplicación de la ingeniería de software en el desarrollo de una plataforma de tutorías académicas permitirá definir requerimientos, diseñar la arquitectura, modelar la base de datos, implementar módulos funcionales y evaluar el desempeño del sistema. Esto contribuye a que la aplicación sea funcional, organizada y adaptable a las necesidades del entorno universitario.
+
+4.4.9 Metodologías de desarrollo de software
+
+Las metodologías de desarrollo de software establecen un conjunto de procesos, actividades y prácticas que orientan la construcción de sistemas informáticos. Su propósito es organizar el trabajo de desarrollo, facilitar la planificación, controlar los avances y reducir riesgos durante la implementación. Entre los enfoques más utilizados se encuentran los modelos tradicionales, las metodologías ágiles y los modelos iterativos o incrementales.
+Los modelos tradicionales, como el modelo en cascada, siguen una secuencia lineal de fases donde cada etapa debe completarse antes de iniciar la siguiente. Este enfoque puede ser útil cuando los requerimientos están completamente definidos desde el inicio; sin embargo, resulta menos flexible cuando existen cambios durante el desarrollo. En contraste, los enfoques ágiles permiten realizar entregas parciales, recibir retroalimentación y adaptar el producto de manera progresiva.
+Schwaber y Sutherland (2020) explican que Scrum se basa en ciclos cortos de trabajo, colaboración y revisión continua del producto. Aunque el presente proyecto no se plantea necesariamente como una implementación completa de Scrum, sus principios permiten comprender la importancia de dividir el trabajo en entregas manejables y validar avances durante el desarrollo.
+El modelo incremental se basa en construir el sistema por partes funcionales, denominadas incrementos. Cada incremento agrega nuevas funcionalidades al producto, permitiendo comprobar resultados parciales y realizar ajustes antes de continuar con el siguiente bloque de desarrollo. Este enfoque resulta adecuado para proyectos donde la aplicación puede dividirse en módulos claramente identificables.
+La comparación entre metodologías de desarrollo de software se mantiene en la Tabla 6 del anteproyecto. Esta comparación permite justificar la selección del modelo incremental como estrategia de desarrollo para la aplicación web.
+Tabla 6. Comparación entre metodologías tradicionales y ágiles
+
+Fuente: Elaboración propia
+
+El modelo incremental permitirá desarrollar progresivamente los módulos de usuarios, tutorías, horarios, comunicación y gestión. Esta estrategia facilitará la validación de cada módulo, la integración gradual de funcionalidades y el control del avance del proyecto, reduciendo el riesgo de desarrollar todo el sistema en una sola etapa.
+
+4.4.10 Eficiencia de desempeño en aplicaciones web
+
+La eficiencia de desempeño es una característica de calidad definida en la norma ISO/IEC 25010:2023, utilizada para evaluar el comportamiento de un sistema de software en relación con los recursos empleados y el tiempo necesario para ejecutar sus funcionalidades. Esta característica permite analizar si una aplicación responde oportunamente, utiliza recursos de manera adecuada y mantiene un comportamiento estable durante su funcionamiento.
+ISO/IEC 25010:2023 establece que la eficiencia de desempeño incluye subcaracterísticas como comportamiento temporal, utilización de recursos y capacidad. El comportamiento temporal se relaciona con los tiempos de respuesta y procesamiento; la utilización de recursos considera el uso de elementos como memoria, procesador o recursos del sistema; y la capacidad se refiere al grado en que el sistema puede manejar cargas de trabajo dentro de límites establecidos.
+En aplicaciones web, la eficiencia de desempeño resulta especialmente importante porque influye en la experiencia de uso, la disponibilidad de información y la continuidad de las operaciones. Rojas (2025) señala que esta característica permite valorar si un sistema mantiene un rendimiento adecuado durante la ejecución de sus funciones, considerando los recursos utilizados y la respuesta del sistema ante diferentes condiciones de operación.
+Para el presente proyecto, evaluar la eficiencia de desempeño permitirá analizar el comportamiento de la aplicación web en acciones como registro e inicio de sesión, consulta de tutorías, publicación de información, coordinación de horarios y gestión de sesiones académicas. Estas pruebas permitirán comprobar si la aplicación responde de manera adecuada durante el uso de sus módulos principales.
+La Tabla 7 del anteproyecto mantiene las subcaracterísticas de eficiencia de desempeño definidas por ISO/IEC 25010:2023 y su relación con el proyecto.
+
+Tabla 7. Su características eficiencia de desempeño ISO/IEC 25010:2023
+
+Fuente: Elaboración propia con base en ISO/IEC 25010:2023.
+
+En consecuencia, la eficiencia de desempeño constituye la variable principal de evaluación del proyecto. Su análisis permitirá obtener resultados sobre tiempos de respuesta, utilización de recursos y capacidad del sistema, aportando evidencia para determinar si la aplicación web desarrollada cumple con criterios técnicos adecuados para su funcionamiento en un entorno universitario.
+
+
+
+
+4.4.11 Trabajos relacionados
+
+La revisión de trabajos relacionados permite identificar investigaciones previas sobre el uso de tecnologías digitales como apoyo a los procesos educativos en educación superior. Estos estudios aportan antecedentes para comprender cómo las aplicaciones web, los entornos virtuales y las TIC han sido utilizados para mejorar el acceso al conocimiento, la interacción académica y la organización de procesos educativos.
+Hidalgo Allauca (2017), citado en los antecedentes del anteproyecto, desarrolló una propuesta relacionada con el uso de cursos MOOC en la Escuela Superior Politécnica de Chimborazo, destacando el aporte de las plataformas digitales en la participación estudiantil y el acceso a contenidos académicos. Este antecedente resulta relevante porque evidencia la aplicación de tecnologías web dentro del contexto institucional.
+Tapia López (2019), también mencionado en los antecedentes del documento, desarrolló un sitio web orientado al apoyo mediante tutorías. Este tipo de propuesta muestra que las herramientas web pueden contribuir a la organización de procesos de acompañamiento académico; sin embargo, el enfoque del presente proyecto se diferencia al centrarse en la gestión de tutorías entre estudiantes universitarios, promoviendo el aprendizaje entre pares.
+UNESCO (2023) destaca que la tecnología puede ampliar las oportunidades de aprendizaje, pero también advierte que su incorporación debe responder a necesidades educativas concretas. En este sentido, la aplicación web propuesta no se plantea como una herramienta tecnológica aislada, sino como una respuesta a la necesidad de organizar el apoyo académico entre estudiantes.
+García Aretio (2014) analiza el papel de la educación mediada por tecnologías en la sociedad digital, resaltando que los entornos virtuales pueden eliminar barreras de tiempo y espacio. Este planteamiento se relaciona con el proyecto porque la aplicación web permitirá que los estudiantes coordinen tutorías académicas con mayor flexibilidad.
+Finalmente, los trabajos revisados permiten identificar una oportunidad de aporte: aunque existen plataformas educativas y herramientas de apoyo académico, muchas se orientan principalmente a la relación docente-estudiante o a la gestión general de cursos. Frente a ello, el presente proyecto propone una aplicación web centrada en la conexión entre estudiantes universitarios para gestionar tutorías académicas, integrando aprendizaje colaborativo, tecnologías web y evaluación de eficiencia de desempeño.
+
+
+
+4.5	TEMARIO TENTATIVO DESGLOSADO, CAPÍTULOS, SUBCAPÍTULOS
+Portada 
+Derecho de Autor/a (Copyright) 
+Declaración de Autenticidad y Cesión de Derechos 
+Certificación de Dirección del Trabajo de Titulación 
+Dedicatoria (opcional) 
+Agradecimientos (opcional) 
+Índice General 
+Índice de Tablas 
+Índice de Figuras
+Índice de Anexos 
+Resumen
+Abstract (keywords)
+
+CAPÍTULO I: DIAGNÓSTICO DEL PROBLEMA
+
+1.1 Antecedentes
+1.2 Formulación del problema
+1.3 Sistematización del problema
+1.4 Justificación
+1.4.1 Justificación teórica
+1.4.2 Justificación aplicativa
+1.5 Objetivos 
+1.5.1 Objetivo general
+1.5.2 Objetivos específicos
+
+CAPÍTULO II: MARCO TEÓRICO
+
+2.1 Aprendizaje colaborativo
+2.2 Tutorías académicas
+2.3 Tecnologías de la Información y Comunicación en la educación
+2.4 Aplicaciones web
+2.5 Arquitectura cliente-servidor
+2.6 Bases de datos relacionales
+2.7 Tecnologías de desarrollo web
+2.8 Ingeniería de software
+2.9 Modelo de desarrollo incremental
+2.10 Eficiencia de desempeño en aplicaciones web
+2.11 Trabajos relacionados
+
+CAPÍTULO III: MARCO METODOLÓGICO
+
+3.1 Tipo de estudio
+3.2 Métodos y técnicas
+3.3 Instrumentos
+3.4 Población y muestra
+3.5 Recursos necesarios
+3.5.1 Hardware
+3.5.2 Software
+3.5.3 Materiales
+3.5.4 Otros recursos
+3.6 Cronograma tentativo (Diagrama de Gantt)
+3.7 Presupuesto
+3.8 Fuente de financiamiento
+
+CAPÍTULO IV: DESARROLLO DEL SISTEMA 
+
+4.1 Análisis de requerimientos
+4.1.1 Identificación de actores y roles
+4.1.2 Requerimientos funcionales
+4.1.3 Requerimientos no funcionales
+4.2 Diseño del sistema
+4.2.1 Diagramas UML y casos de uso
+4.2.2 Arquitectura general del sistema
+4.2.3 Diseño de base de datos
+4.2.4 Diseño de interfaces
+4.3 Desarrollo del sistema
+4.3.1 Configuración del entorno de desarrollo
+4.3.2 Desarrollo del frontend
+4.3.3 Desarrollo del backend
+4.3.4 Implementación de módulos funcionales
+4.4 Validación del sistema
+4.4.1 Pruebas funcionales
+4.4.2 Pruebas de eficiencia de desempeño
+4.4.3 Validación con usuarios
+4.5 Documentación del sistema
+4.5.1 Manual técnico
+4.5.2 Manual de usuario
+
+CAPÍTULO V: CONCLUSIONES Y RECOMENDACIONES
+
+5.1 Conclusiones
+5.2 Recomendaciones
+
+REFERENCIAS BIBLIOGRÁFICAS
+ANEXOS
+
+5.	EJECUCIÓN DEL TRABAJO DE GRADO
+
+5.1	DISEÑO DE LA INVESTIGACIÓN
+
+5.1.1 TIPO DE ESTUDIO
+
+Este estudio se desarrolla en el campo aplicado, ya que tiene como objetivo abordar un verdadero problema detectado en la universidad, donde los estudiantes luchan por obtener ayuda académica a tiempo para temas específicos. Esta aplicación web pretende salvar la brecha entre los estudiantes que necesitan ayuda y aquellos que son expertos en ciertas materias, todo a través de la tecnología
+
+La investigación aplicada consiste en utilizar la teoría y la tecnología para encontrar soluciones reales para problemas específicos. En este escenario, utilizaremos ingeniería de software, desarrollo web, bases de datos, diseño centrado en el usuario para crear una plataforma de trabajo que impulse el trabajo en equipo y el aprendizaje entre los estudiantes.
+
+Este estudio también cubrirá una parte descriptiva, donde veremos cómo los estudiantes universitarios obtienen ayuda académica ahora, averiguarán lo que necesitan, y decidir qué debe y no debe hacer la aplicación. Este enfoque facilitará la comprensión del problema y definirá las características necesarias para la solución tecnológica. ya que no sólo se limitará a analizar los problemas existentes, sino que también planteará y desarrollará una solución informática destinada a mejorar los procesos de apoyo académico mediante el uso de tecnologías digitales.
+
+Este tipo de investigación es clave para impulsar este proyecto, mezclando el estudio de una necesidad real con la elaboración de una herramienta tecnológica que se ajuste a la escena universitaria.
+
+5.1.2	Metodos y tecnicas 
+Para la ejecución del presente trabajo de grado se emplearán métodos y tecnicas orientados al análisis de la problemática identificada, al levantamiento de requerimientos, al diseño estructural, al desarrollo y a la evaluación de la aplicación web propuesta. 
+En la Tabla 8 se describe y detalla los métodos y técnicas a ser utilizadas para cada objetivo.
+Tabla 8. Métodos y técnicas
+Fuente: Elaboración propia
+Para complementar la matriz metodológica, se describen las técnicas e instrumentos que se aplicarán durante el desarrollo del proyecto:
+
+Revisión documental: esta técnica permitirá recopilar y analizar información proveniente de libros, artículos científicos, tesis, documentos académicos y fuentes técnicas relacionadas con aprendizaje colaborativo, tutorías académicas, aplicaciones web, bases de datos relacionales, tecnologías de desarrollo web, ingeniería de software y eficiencia de desempeño. Su finalidad es fortalecer la base teórica del proyecto y sustentar las decisiones de diseño, desarrollo y evaluación de la aplicación.
+
+Encuesta a estudiantes: se aplicará para obtener información sobre las necesidades, dificultades y expectativas de los estudiantes universitarios respecto al acceso y organización de tutorías académicas. Esta técnica permitirá identificar aspectos relevantes para la definición de requerimientos funcionales y no funcionales de la aplicación web.
+
+Análisis de requerimientos: se utilizará para identificar las funcionalidades que deberá cumplir la aplicación, así como las condiciones de rendimiento, organización, disponibilidad y funcionamiento esperadas. Este análisis permitirá definir los procesos principales del sistema, como registro de usuarios, publicación de tutorías, búsqueda de apoyo académico, coordinación de horarios y comunicación entre estudiantes.
+
+Historias de usuario: facilitarán la descripción de funcionalidades desde la perspectiva de los usuarios de la aplicación. A través de ellas se representarán necesidades concretas de los estudiantes, permitiendo organizar el desarrollo de los módulos funcionales de acuerdo con los requerimientos identificados.
+
+Modelado del sistema mediante UML: se empleará para representar gráficamente la estructura y comportamiento de la aplicación. Los diagramas UML permitirán visualizar actores, casos de uso, procesos e interacciones del sistema, sirviendo como apoyo para el diseño técnico de la aplicación web.
+
+Prototipado de interfaces: se utilizará para diseñar las pantallas principales de la aplicación antes de su implementación. Esta técnica permitirá organizar la navegación, distribución de elementos e interacción del usuario con los módulos del sistema.
+
+Modelado entidad-relación: se aplicará para diseñar la estructura de la base de datos relacional. Este modelado permitirá definir entidades, atributos y relaciones necesarias para gestionar información sobre usuarios, asignaturas, tutorías, horarios y sesiones académicas.
+
+Desarrollo incremental: se empleará para construir la aplicación por módulos funcionales de manera progresiva. Este enfoque permitirá implementar, revisar e integrar cada parte del sistema de forma ordenada, reduciendo riesgos durante el desarrollo.
+
+Programación modular y control de versiones: se utilizarán para organizar el código fuente de la aplicación y mantener un seguimiento de los avances realizados. El uso de herramientas como Visual Studio Code y GitHub permitirá gestionar el desarrollo de los módulos y facilitar el control de cambios.
+
+Pruebas de eficiencia de desempeño: se aplicarán para evaluar el comportamiento de la aplicación web de acuerdo con criterios de la norma ISO/IEC 25010:2023. Estas pruebas permitirán analizar aspectos como tiempos de respuesta, utilización de recursos y capacidad del sistema en escenarios definidos.
+
+Registro y análisis de resultados: se utilizará para organizar los datos obtenidos durante las pruebas realizadas. Los resultados serán registrados mediante listas de verificación, matrices de evaluación y registros de prueba, con el propósito de interpretar el desempeño de la aplicación web y verificar el cumplimiento de los criterios establecidos.
+
+INSTRUMENTOS TECNOLÓGICOS
+Para el desarrollo de la aplicación web se emplearán diversas herramientas tecnológicas. Estas permitirán la implementación, gestión y validación de la aplicación.
+En cuanto a la base de datos, se usará PostgreSQL. Este sistema gestor permitirá almacenar la información de forma estructurada. Para el backend, se optó por Node.js, que facilitará la ejecución de la lógica del servidor y la administración de las solicitudes.
+La interfaz de usuario se construirá con HTML, CSS y Tailwind CSS. Estas tecnologías están orientadas al desarrollo del frontend y al diseño de interfaces responsivas (que se adaptan a diferentes tamaños de pantalla). Como entorno de programación se usará Visual Studio Code, principalmente por sus herramientas de edición y su compatibilidad con múltiples extensiones.
+Para el control de versiones y respaldo del código fuente durante el desarrollo, se empleará GitHub. Las pruebas de la aplicación se harán con un navegador web, lo cual permitirá verificar el funcionamiento y la compatibilidad de la aplicación. Por último, draw.io se utilizará para elaborar diagramas técnicos y realizar el modelado visual del aplicativo.
+5.1.3	POBLACIÓN Y MUESTRA
+Los estudiantes que participarán en este trabajo pertenecen a la Facultad de informática y electrónica de la Escuela Superior Politécnica de Chimborazo. Todos están matriculados actualmente. Estos estudiantes son los potenciales usuarios de la aplicación web que se propone desarrollar, una herramienta pensada para facilitar el acceso a tutorías académicas entre pares.
+Esta población fue seleccionada por dos razones principales, la primera es la relación directa que el investigador tiene con este entorno académico. La segunda es la facilidad para acceder a los participantes, tanto en la fase de recolección de información como en la etapa de validación del aplicativo web.
+El proyecto tiene ciertas características que influyen en cómo se selecciona la muestra. También influye la disponibilidad real de los estudiantes. Por estas razones, se optó por una muestra no probabilística por conveniencia. En la práctica, esto significa que los estudiantes se eligieron de forma voluntaria, procurando que hubiera representantes de distintos niveles académicos dentro de la carrera.
+Se estima que la muestra será de 120 estudiantes. Esta cantidad se considera adecuada porque permite realizar tres objetivos: primero, recoger información inicial sobre el problema identificado; segundo, definir los requerimientos funcionales del aplicativo; y tercero, evaluar si la aplicación desarrollada tiene una aceptación preliminar entre los usuarios.
+Tabla 9. Distribución referencial de la muestra
+Fuente: Elaboración propia
+Quienes participen en el estudio serán vistos como posibles usuarios de la plataforma. Desde esa posición, podrán ofrecer criterios útiles acerca de tres aspectos: qué necesidades académicas tienen, en qué materias se les dificulta más estudiar, y qué opinión les merece el uso de una herramienta digital para organizar tutorías entre estudiantes. 
+5.1.4	ANALISIS DE DATOS
+El análisis de datos del presente trabajo de grado se realizará a partir de la información obtenida mediante las técnicas e instrumentos aplicados durante la fase de investigación y validación del aplicativo web. Los datos recopilados permitirán identificar necesidades académicas, establecer requerimientos funcionales y evaluar la aceptación preliminar de la aplicación web propuesta.
+La información obtenida a través de la investigación documental y el análisis de requerimientos será organizada y clasificada de acuerdo con su relevancia para el desarrollo del aplicativo web. Esto permitirá definir funcionalidades prioritarias, estructura general de la plataforma y características necesarias para su implementación.
+En el caso de los datos obtenidos mediante formularios, encuestas internas o pruebas funcionales, se aplicará un análisis descriptivo, utilizando tablas y gráficos estadísticos para representar frecuencias, porcentajes y tendencias relacionadas con las respuestas de los participantes.
+Asimismo, los resultados derivados de las pruebas funcionales serán analizados con base en el cumplimiento de los requerimientos establecidos, identificando posibles errores, oportunidades de mejora y nivel de funcionamiento de cada módulo implementado.
+La interpretación de los datos obtenidos permitirá sustentar técnicamente las decisiones adoptadas durante el desarrollo del proyecto y verificar la pertinencia de la aplicación web como herramienta de apoyo académico para estudiantes universitarios.
+5.2	RECURSOS
+
+Para el desarrollo del presente trabajo de grado se requerirá de recursos tecnológicos, materiales y de servicios que permitan la planificación, diseño, implementación, pruebas y validación de la aplicación web propuesta. Estos recursos resultan necesarios para garantizar el cumplimiento de las actividades establecidas y el desarrollo adecuado del aplicativo web.
+
+5.2.1 HARDWARE
+
+Los recursos de hardware corresponden a los equipos físicos que serán utilizados durante las etapas de programación, pruebas y documentación del aplicativo web.
+
+Tabla 10. Recursos de hardware
+Fuente: Elaboración propia.
+5.2.2 SOFTWARE
+Los recursos de software comprenden las herramientas tecnológicas utilizadas para el diseño, programación, almacenamiento de datos y control del proyecto.
+Tabla 11. Recursos de software
+Fuente: Elaboración propia.
+5.2.3 MATERIALES
+Incluye los materiales complementarios necesarios para la planificación, organización y documentación del proyecto durante su ejecución. Estos recursos servirán de apoyo en las diferentes fases del desarrollo de la aplicación web propuesta.
+Tabla 12. Materiales a utilizar
+Fuente: Elaboración propia.
+5.2.4 OTROS RECURSOS
+Incluye servicios complementarios necesarios para la ejecución del proyecto, tales como conectividad, suministro eléctrico y herramientas de publicación temporal, indispensables para el desarrollo, pruebas y validación de la aplicación web propuesta.
+Tabla 13. Otros recursos
+Fuente: Elaboración propia.
+La disponibilidad de estos recursos complementarios permitirá garantizar condiciones adecuadas para el desarrollo técnico del proyecto, facilitando el acceso continuo a herramientas digitales, la ejecución de la aplicación web en entorno real de pruebas y la validación funcional de la aplicación web antes de su implementación definitiva.
+5.3	CRONOGRAMA TENTATIVO (GANTT)
+
+
+
+5.4	PRESUPUESTO
+Tabla 14. Presupuesto estimado del proyecto
+
+Fuente: Elaboración propia.
+Es importante señalar que los equipos principales utilizados para el desarrollo, como computador portátil y herramientas de software base, corresponden a recursos propios del autor del trabajo de titulación, por lo cual no se incluyen como costos directos dentro del presupuesto.
+
+5.5	FUENTE DE FINANCIAMIENTO
+El financiamiento del presente trabajo de grado será asumido por el autor del trabajo de titulación, quien cubrirá los costos relacionados con conectividad, materiales, servicios complementarios y demás gastos necesarios para el desarrollo e implementación de la aplicación web propuesta.
+Adicionalmente, se prevé el uso de herramientas tecnológicas de acceso libre o versiones gratuitas para estudiantes, lo cual permitirá optimizar recursos económicos durante la ejecución del proyecto. Esta modalidad de financiamiento garantiza la viabilidad del estudio sin depender de aportes externos.
+6.	REFERENCIAS BIBLIOGRÁFICAS
+
+Cabero, J., & Llorente, M. C. (2015). Tecnologías de la información y la comunicación (TIC): escenarios formativos y teorías del aprendizaje. Revista Lasallista de Investigación, 12(2), 186–193. Disponible en: https://www.redalyc.org/articulo.oa?id=69542291017
+Dillenbourg, P. (1999). What do you mean by collaborative learning? En P. Dillenbourg (Ed.), Collaborative-learning: Cognitive and computational approaches. Oxford: Elsevier. Disponible en: https://telearn.archives-ouvertes.fr/hal-00190240/document
+Falchikov, N. (2001). Learning together: Peer tutoring in higher education. Routledge. Disponible en: https://www.taylorfrancis.com/books/mono/10.4324/9780203451496
+García Aretio, L. (2014). Bases, mediaciones y futuro de la educación a distancia en la sociedad digital. Revista Iberoamericana de Educación a Distancia, 17(2), 9–38. Disponible en: https://www.redalyc.org/articulo.oa?id=331431248001
+García-Valcárcel, A., & Basilotta, V. (2020). Aprendizaje colaborativo en entornos virtuales: un análisis de su impacto en la educación superior. Disponible en: https://www.researchgate.net/publication/343670123
+Gokhale, A. A. (1995). Collaborative learning enhances critical thinking. Journal of Technology Education, 7(1), 22–30. Disponible en: https://scholar.lib.vt.edu/ejournals/JTE/v7n1/gokhale.jte-v7n1.html
+Gutiérrez, F. A. (2023). The importance of web application architecture. Dalarna University. Disponible en: https://www.diva-portal.org/smash/get/diva2:1772594/FULLTEXT01.pdf
+IBM. (2024). What is client-server architecture? Disponible en: https://www.ibm.com/topics/client-server
+IBM. (2025). What is three-tier architecture? Disponible en: https://www.ibm.com/think/topics/three-tier-architecture
+International Organization for Standardization. (2023). ISO/IEC 25010:2023: Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Product quality model. Disponible en: https://www.iso.org/standard/78176.html
+Johnson, D. W., Johnson, R. T., & Holubec, E. J. (1999). El aprendizaje cooperativo en el aula. Buenos Aires: Paidós. Disponible en: https://www.ucm.es/data/cont/docs/1626-2019-03-15-JOHNSON%20El%20aprendizaje%20cooperativo%20en%20el%20aula.pdf
+Johnson, D. W., Johnson, R. T., & Smith, K. A. (2014). Cooperative learning: Improving university instruction by basing practice on validated theory. Journal on Excellence in College Teaching, 25(3–4), 85–118. Disponible en: https://www.researchgate.net/publication/284471328_Cooperative_Learning_Improving_university_instruction_by_basing_practice_on_validated_theory
+Johnson, D. W., & Johnson, R. T. (2018). Cooperative learning: The foundation for active learning. Disponible en: https://www.researchgate.net/publication/330952938_Cooperative_Learning_The_Foundation_for_Active_Learning
+León-Velarde, C. G. (2024). Diseño de una aplicación web ASP.NET para la gestión de matrícula y registro de calificaciones de alumnos en una Universidad Nacional. Revista Científica de Sistemas e Informática. Disponible en: https://ve.scielo.org/scielo.php?pid=S2665-03982024000202021&script=sci_arttext
+MDN Web Docs. (2026). Overview of HTTP. Mozilla. Disponible en: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview
+OpenJS Foundation. (s.f.). About Node.js. Node.js. Disponible en: https://nodejs.org/en/about
+PostgreSQL Global Development Group. (s.f.). PostgreSQL: About. Disponible en: https://www.postgresql.org/about/
+PostgreSQL Global Development Group. (s.f.). PostgreSQL Documentation. Disponible en: https://www.postgresql.org/docs/
+Pressman, R. S., & Maxim, B. R. (2020). Ingeniería del software: Un enfoque práctico (9.ª ed.). McGraw-Hill.
+Revelo-Rosero, J. (2023). La web 2.0 como herramienta para la docencia universitaria en el proceso de enseñanza-aprendizaje. Revista Conrado, 19(90), 36–44. Disponible en: https://scielo.senescyt.gob.ec/scielo.php?pid=S2631-28752023000100036&script=sci_arttext
+Rojas, H. (2025). Understanding performance efficiency in ISO/IEC 25000. Journal of Information Systems and Informatics. Disponible en: https://joiv.org/index.php/joiv/article/view/3074
+Schwaber, K., & Sutherland, J. (2020). The Scrum Guide. Disponible en: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-Latin-South-American.pdf
+Sommerville, I. (2011). Ingeniería de software (9.ª ed.). Pearson.
+Tailwind Labs. (s.f.). Tailwind CSS: Utility-first CSS framework. Disponible en: https://tailwindcss.com/
+Tailwind Labs. (s.f.). Styling with utility classes. Tailwind CSS Documentation. Disponible en: https://tailwindcss.com/docs/styling-with-utility-classes
+Tinto, V. (2012). Completing college: Rethinking institutional action. University of Chicago Press. Disponible en: https://openlibrary.org/books/OL25066824M/Completing_college
+UNESCO. (2023). Technology in education: A tool on whose terms? Global Education Monitoring Report 2023. Paris: UNESCO. Disponible en: https://unesdoc.unesco.org/ark:/48223/pf0000385723
+Villón Asencio, Y. J., Montalván Panchana, C. A., García Arias, N., & Ortiz Aguilar, W. (2024). La comprensión lectora de los estudiantes a partir del aprendizaje colaborativo. Uniandes Episteme, 11(3), 334–346. Disponible en: https://www.redalyc.org/journal/5646/564678430004/564678430004.pdf
+Vygotsky, L. S. (1978). Mind in society: The development of higher psychological processes. Harvard University Press. Disponible en: https://www.marxists.org/archive/vygotsky/works/mind-in-society.pdf
+
+
+
+
+
+
+
+ Nombre y Firma del estudiante(s)		                  Nombre y Firma del Director(a)
+           PROPONENTE(s)		                        DIRECTOR(a) DEL TRABAJO DE GRADO
+          Nombre: Carlos Toa      	                                                Nombre: Natalia Layedra
+             CI: 1805362272 				                 CI: 0603304619
+OPCIÓN | MODALIDAD | 
+Emprendimiento | Emprendimiento | 
+Trabajo de Titulación | Proyecto Técnico | X
+Trabajo de Titulación | Artículo | 
+LINEA | PROGRAMA | 
+TECNOLOGÍAS DE LA INFORMACIÓN Y LA COMUNICACIÓN                      (TIC) | Tecnología e Innovación Educativa	 | 
+TECNOLOGÍAS DE LA INFORMACIÓN Y LA COMUNICACIÓN                      (TIC) | Sistemas de Información	 | 
+TECNOLOGÍAS DE LA INFORMACIÓN Y LA COMUNICACIÓN                      (TIC) | Software	 | X
+TECNOLOGÍAS DE LA INFORMACIÓN Y LA COMUNICACIÓN                      (TIC) | Inteligencia Artificial	 | 
+TECNOLOGÍAS DE LA INFORMACIÓN Y LA COMUNICACIÓN                      (TIC) | Ciberseguridad | 
+TECNOLOGÍAS DE LA INFORMACIÓN Y LA COMUNICACIÓN                      (TIC) | Ciencia de Datos | 
+Tipo de tutoría | Características | Ventajas
+Individual | Atención personalizada entre tutor y estudiante | Mayor enfoque en necesidades específicas
+Grupal | Un tutor atiende a varios estudiantes simultáneamente | Fomenta el aprendizaje colaborativo
+Virtual | Se realiza mediante plataformas digitales | Flexibilidad de tiempo y acceso
+Criterio | Educación Tradicional | Educación con TIC
+Acceso a información | Limitado a materiales físicos | Acceso amplio a recursos digitales
+Interacción | Principalmente presencial | Presencial y virtual
+Rol del estudiante | Pasivo | Activo y participativo
+Flexibilidad | Baja | Alta
+Aprendizaje | Centrado en el docente | Centrado en el estudiante
+Criterio | Aplicaciones Web | Aplicaciones de Escritorio
+Instalación | No requiere instalación | Requiere instalación en el equipo
+Acceso | Desde navegador con internet | Solo en el dispositivo instalado
+Actualizaciones | Automáticas y centralizadas | Manuales o por versión
+Portabilidad | Alta (multiplataforma) | Limitada al sistema operativo
+Uso en educación | Facilita acceso remoto y colaboración | Uso más limitado y local
+Componente | Descripción | Aplicación En El Proyecto
+Cliente | Interfaz desde la cual el usuario interactúa con la aplicación | Navegador web utilizado por los estudiantes
+Servidor | Procesa solicitudes, ejecuta la lógica de negocio y devuelve respuestas | Backend desarrollado para gestionar usuarios, tutorías y horarios
+Base de datos | Almacena información estructurada de la aplicación | Registro de usuarios, asignaturas, tutorías y sesiones
+Protocolo HTTP | Permite la comunicación entre cliente y servidor | Envío y recepción de solicitudes dentro de la aplicación web
+Fase | Descripción
+Análisis de requerimientos | Identificación de necesidades del sistema
+Diseño | Definición de la arquitectura y estructura
+Implementación | Desarrollo del código fuente
+Pruebas | Verificación del funcionamiento
+Mantenimiento | Mejora y actualización continua
+Criterio | Tradicionales | Incrementales / Ágiles
+Enfoque | Secuencial | Iterativo e incremental
+Flexibilidad | Baja | Alta
+Cambios | Difícil incorporación | Adaptación constante
+Entrega | Al final del proyecto | Entregas parciales continuas
+Participación del usuario | Limitada | Activa y constante
+SUBCARACTERÍSTICA | DESCRIPCIÓN
+Comportamiento temporal | Evalúa los tiempos de respuesta y procesamiento de las funcionalidades del sistema
+Utilización de recursos | Analiza el uso adecuado de memoria, procesamiento y otros recursos
+Capacidad | Verifica la capacidad del sistema para operar correctamente bajo determinadas condiciones
+OBJETIVO | MÉTODO | TÉCNICAS | FUENTE
+Determinar los requerimientos funcionales y no funcionales de la aplicación web de tutorías académicas entre estudiantes universitarios, mediante técnicas de recolección de información y definición de historias de usuario. | Analítico-sintético | Revisión documental
+Encuesta a estudiantes
+Análisis de necesidades
+Elicitación y clasificación de requerimientos
+Definición de historias de usuario | Estudiantes universitarios de la Facultad de Informática y Electrónica de la ESPOCH
+Antecedentes y documentos académicos revisados sobre tutorías académicas y aplicaciones web educativas
+Diseñar la arquitectura del sistema, las interfaces de usuario (UI/UX) y el modelo de datos relacional de la aplicación web de tutorías académicas, mediante el uso de diagramas UML, herramientas de prototipado y modelado entidad-relación. | Modelado | Modelado de arquitectura
+Diseño de interfaces
+Prototipado
+Modelado entidad-relación
+Elaboración de diagramas UML | Requerimientos funcionales y no funcionales
+Historias de usuario
+Necesidades identificadas en los estudiantes
+Desarrollar los módulos de la aplicación, utilizando tecnologías web y un enfoque de desarrollo incremental. | Metodología Incremental | Programación modular
+Desarrollo por incrementos
+Integración progresiva de módulos
+Control de versiones | Requerimientos del sistema
+Arquitectura definida
+Prototipos de interfaz
+Modelo de datos
+Tecnologías seleccionadas para el desarrollo
+Evaluar la eficiencia de desempeño de la aplicación web mediante pruebas basadas en la norma ISO/IEC 25010:2023. | Evaluativo | Pruebas de eficiencia de desempeño
+Medición de tiempos de respuesta
+Análisis de utilización de recursos
+Registro de resultados | Aplicación web desarrollada
+Escenarios de prueba
+Criterios de evaluación basados en la norma ISO/IEC 25010:2023
+NIVEL ACADÉMICO | PARTICIPANTES ESTIMADOS
+Primeros semestres | 40
+Semestres intermedios | 40
+Últimos semestres | 40
+Total | 120
+RECURSO | CANTIDAD | ESPECIFICACIONES TÉCNICAS
+Computador portátil | 1 | Procesador AMD Ryzen 7 7435HS (3.10 GHz), memoria RAM de 32 GB, tarjeta gráfica NVIDIA GeForce RTX 3050 Laptop GPU (4 GB), almacenamiento SSD de 954 GB
+Router WiFi | 1 | Doble banda 2.4/5 GHz, velocidad de conexión de 100 Mbps
+SOFTWARE | FUNCIÓN
+Windows 11 Home | Sistema operativo principal del equipo de desarrollo
+Visual Studio Code | Entorno de desarrollo y edición de código
+PostgreSQL | Sistema gestor de base de datos
+Node.js | Desarrollo del backend y ejecución del entorno JavaScript
+Framework web | Desarrollo estructurado del frontend de la aplicación
+HTML, CSS y Tailwind CSS | Diseño e implementación de la interfaz web
+GitHub | Control de versiones y respaldo del código fuente
+Figma | Diseño de prototipos e interfaces gráficas
+draw.io | Elaboración de diagramas UML y modelado técnico
+Navegador web | Pruebas funcionales y verificación de la aplicación web
+RECURSO | CANTIDAD | DESCRIPCIÓN
+Cuaderno universitario | 1 | Registro de apuntes, observaciones y planificación del proyecto
+Esferográficos | 2 | Elaboración de notas y seguimiento de actividades
+Hojas tamaño A4 | 1 paquete | Impresión de documentos, reportes y avances
+Carpeta archivadora | 1 | Organización y resguardo de documentación física
+NOMBRE DEL RECURSO | CANTIDAD / TIEMPO ESTIMADO | ESPECIFICACIONES
+Servicio de internet | 5 meses | Conectividad estable mínima de 100 Mbps para desarrollo, investigación y pruebas
+Energía eléctrica | 5 meses | Consumo aproximado para funcionamiento del computador portátil y equipos auxiliares
+Servicio de hosting temporal | 2 meses | Implementación provisional para pruebas de despliegue y validación de la aplicación web
+RECURSO | CANTIDAD | VALOR UNITARIO (USD) | VALOR TOTAL (USD)
+Servicio de internet (5 meses) | 5 | 20,00 | 100,00
+Energía eléctrica (aporte estimado) | 5 meses | 15,00 | 75,00
+Hosting temporal para pruebas | 2 meses | 10,00 | 20,00
+Cuaderno universitario | 1 | 3,00 | 3,00
+Esferográficos | 2 | 1,00 | 2,00
+Hojas A4 (paquete) | 1 | 6,00 | 6,00
+Carpeta archivadora | 1 | 2,00 | 2,00
+Impresiones y copias | Varios | 15,00 | 15,00
+TOTAL ESTIMADO: | TOTAL ESTIMADO: | TOTAL ESTIMADO: | 223,00

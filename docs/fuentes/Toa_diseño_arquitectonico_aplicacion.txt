@@ -1,0 +1,249 @@
+
+--- PAGINA 1 ---
+1
+ESCUELA SUPERIOR POLITÉCNICA DE CHIMBORAZO
+FACULTAD DE INFORMÁTICA Y ELECTRÓNICA
+CARRERA DE SOFTWARE
+APLICACIONES INFORMÁTICAS
+Diseño Arquitectónico de la Aplicación
+Desarrollo de una aplicación web para gestionar tutorías académicas entre estudiantes 
+universitarios
+Carlos Javier Toa Chávez
+Código: 7453
+5 de octubre de 2026
+
+--- PAGINA 2 ---
+2
+DISEÑO ARQUITECTÓNICO DE LA APLICACIÓN
+Desarrollo de una aplicación web para gestionar tutorías académicas entre estudiantes 
+universitarios
+1. Introducción y contexto del proyecto
+El  proyecto  plantea  el  desarrollo  de  una  aplicación  web  para  organizar  tutorías  
+académicas entre estudiantes universitarios. La necesidad principal surge porque la búsqueda de  
+apoyo suele realizarse mediante grupos de mensajería, contactos personales o conversaciones  
+informales, lo que dificulta encontrar un tutor adecuado, coincidir en horarios y coordinar una  
+sesión de forma ordenada.
+La aplicación permitirá que un estudiante busque apoyo según la asignatura que necesita,  
+mientras que  otros  estudiantes  podrán  ofrecer  tutorías  en  las  materias  que  dominan.  Como  
+elementos diferenciadores, el sistema considerará la disponibilidad horaria, la carga del horario  
+académico  en  formato  PDF  y  la  cercanía  entre  estudiantes  cuando  se  autorice  el  uso  de  
+ubicación. De esta manera, la solución no se limita a publicar tutorías, sino que busca facilitar la  
+coincidencia entre estudiantes y reducir el tiempo de coordinación.
+A partir de los requisitos definidos previamente, la arquitectura debe soportar registro y  
+autenticación, perfiles, tutorías por asignatura, horarios, recomendación de tutores, solicitudes de  
+sesión, comunicación entre participantes y administración básica. También debe permitir que las  
+funcionalidades puedan desarrollarse de forma incremental durante las 16 semanas establecidas  
+para el proyecto.
+2. Selección de la arquitectura de la aplicación
+Se selecciona una arquitectura cliente-servidor de tres capas: presentación, lógica de  
+negocio y persistencia. La capa de presentación será responsable de la interacción con el usuario;  
+la capa de lógica de negocio procesará las reglas del sistema y coordinará los módulos; y la capa  
+de persistencia  almacenará la  información de  forma  estructurada. La  comunicación entre  el  
+frontend y el backend se realizará mediante una API REST utilizando HTTP/HTTPS y JSON.
+Para la primera versión se utilizará un monolito modular, en lugar de microservicios. Esta  
+decisión responde al tamaño del proyecto, al tiempo disponible y a la necesidad de mantener una  
+implementación clara y fácil de desplegar. La separación interna por módulos permite conservar  
+
+--- PAGINA 3 ---
+3
+orden  y  mantenibilidad  sin  añadir  la  complejidad  operativa  de  múltiples  servicios  
+independientes.
+2.1 Tecnologías y componentes por capa
+Capa / nivel Tecnología seleccionada Función principal en el sistema
+Capa 1: Presentación React + Tailwind CSS
+Construcción de la interfaz web, 
+formularios, paneles, búsqueda de 
+tutorías, visualización de horarios y 
+adaptación a diferentes tamaños de 
+pantalla.
+Capa 2: Lógica de negocio Node.js + Express
+Procesamiento de solicitudes, 
+autenticación, gestión de perfiles, 
+tutorías, horarios, recomendaciones, 
+sesiones y mensajería mediante una 
+API REST.
+Capa 3: Persistencia PostgreSQL
+Almacenamiento relacional de 
+usuarios, roles, asignaturas, 
+tutorías, horarios, solicitudes, 
+sesiones, mensajes y zonas de 
+ubicación.
+Servicio auxiliar de horario Procesamiento de PDF
+Recepción del horario académico, 
+identificación de bloques horarios y 
+entrega de resultados para que el 
+estudiante confirme o corrija sus 
+espacios disponibles.
+Servicio de ubicación Geolocation API del navegador
+Obtención opcional de ubicación o 
+coordenadas autorizadas para 
+utilizar la cercanía como criterio 
+adicional de recomendación.
+2.2 Estilos y patrones adoptados
+En el frontend se utilizará un enfoque basado en componentes con React, de modo que  
+elementos como formularios, tarjetas de tutor, calendarios, filtros y paneles puedan reutilizarse.  
+En  el  backend  se  aplicará  una  separación  Controller-Service-Repository:  los  controladores  
+recibirán las solicitudes HTTP, los servicios contendrán las reglas de negocio y los repositorios  
+concentrarán el acceso a PostgreSQL. Este patrón evita mezclar responsabilidades y facilita las  
+pruebas y el mantenimiento.
+La API REST actuará como frontera entre presentación y lógica de negocio. Esto permite  
+que el frontend no acceda directamente a la base de datos y deja abierta la posibilidad de que, en  
+una evolución futura, una aplicación móvil consuma los mismos servicios sin duplicar las reglas  
+principales del sistema.
+3. Diagrama arquitectónico del sistema
+
+--- PAGINA 4 ---
+4
+El diagrama siguiente representa la arquitectura de la aplicación con un nivel de detalle  
+mayor. Se muestran los actores que interactúan con el sistema, la capa de presentación, la API  
+REST,  los  servicios  internos  del  backend,  los  repositorios,  PostgreSQL  y  los  servicios  
+complementarios utilizados para procesar el horario académico en PDF y considerar la ubicación  
+como criterio opcional de recomendación.
+Figura 1. Diagrama arquitectónico detallado de la aplicación de tutorías académicas.
+3.1 Descripción del flujo de interacción arquitectónica
+1. Acceso e interfaz: El estudiante ingresa desde un navegador web. React presenta la interfaz  
+y  captura  las  acciones  realizadas,  mientras  Tailwind  CSS  permite  mantener  un  diseño  
+adaptable.
+2. Comunicación con el servidor: Las operaciones que requieren información se envían por  
+HTTPS hacia la API REST del backend. Los controladores validan la solicitud y la derivan al  
+servicio correspondiente.
+3.  Procesamiento  de  la  lógica:  Los  servicios  gestionan  autenticación,  perfiles,  tutorías,  
+asignaturas, horarios, solicitudes, sesiones y mensajes. Cada módulo aplica sus propias reglas  
+antes de acceder a los datos.
+4. Búsqueda y recomendación: Cuando un estudiante busca apoyo, el sistema filtra tutores  
+por asignatura y compara las horas disponibles de ambas partes. Si existe una ubicación  
+autorizada, la cercanía se utiliza como criterio adicional de ordenamiento.
+
+--- PAGINA 5 ---
+5
+5. Procesamiento del horario PDF:  El horario cargado por el estudiante se procesa para  
+identificar bloques ocupados y posibles espacios libres. Antes de almacenarlos, el usuario  
+podrá confirmar o corregir los resultados para evitar depender completamente de una lectura  
+automática.
+6.  Persistencia:  Los  repositorios  consultan  y  actualizan  PostgreSQL.  La  base  de  datos  
+mantiene  relaciones  entre  usuarios,  tutorías,  horarios,  solicitudes  y  sesiones,  permitiendo  
+conservar integridad y trazabilidad de la información.
+4. Justificación de las decisiones arquitectónicas, estilos y patrones
+4.1 Arquitectura de tres capas
+La arquitectura de tres capas permite separar la interfaz, las reglas del sistema y el  
+almacenamiento de datos. Esta separación reduce el acoplamiento: un cambio visual en React no  
+obliga a modificar las tablas de PostgreSQL y una modificación en las reglas de recomendación  
+puede implementarse en el backend sin rediseñar toda la interfaz. También facilita el desarrollo  
+incremental y la ubicación de errores.
+4.2 React y arquitectura basada en componentes
+React  se  selecciona  porque  la  aplicación  tendrá  varias  vistas  dinámicas,  filtros,  
+formularios,  horarios  y  estados  que  cambian  según  la  interacción  del  usuario.  El  uso  de  
+componentes reutilizables evita repetir código y permite mantener coherencia visual. Frente a  
+una interfaz construida únicamente con HTML estático, React facilita la actualización parcial de  
+la pantalla y la organización de una aplicación que crecerá por módulos.
+4.3 Node.js, Express y patrón Controller-Service-Repository
+Node.js permite utilizar JavaScript también en el servidor y resulta adecuado para una  
+aplicación web que manejará múltiples solicitudes de usuarios, búsquedas y mensajería. Express  
+simplifica  la  construcción  de  endpoints  y  middleware.  La  separación  Controller-Service-
+Repository evita concentrar toda la lógica en las rutas: los controladores atienden solicitudes, los  
+servicios aplican reglas y los repositorios manejan los datos. Esto mejora la mantenibilidad y las  
+pruebas.
+4.4 PostgreSQL como base de datos relacional
+PostgreSQL se adapta al proyecto porque la información posee relaciones claramente  
+definidas. Un usuario puede ofrecer varias tutorías, una tutoría pertenece a una asignatura, una  
+
+--- PAGINA 6 ---
+6
+solicitud relaciona a un solicitante con un tutor y una sesión se asocia con horarios y mensajes.  
+El  modelo  relacional  permite  utilizar  claves,  restricciones  y  transacciones  para  mantener  la 
+consistencia de estas relaciones.
+4.5 API REST y JSON
+La  API  REST  desacopla  el  frontend  del  backend  y  define  una  forma  uniforme  de  
+consultar y modificar información. JSON es ligero y compatible directamente con JavaScript.  
+Esta decisión también permite que otros clientes, como una futura aplicación móvil, reutilicen el  
+mismo backend sin acceder directamente a PostgreSQL.
+4.6 PDF y geolocalización como módulos complementarios
+La carga del horario PDF y la cercanía aportan valor al proceso de recomendación, pero  
+no deben convertirse en dependencias críticas. Si el PDF no puede interpretarse correctamente, el 
+estudiante podrá corregir o registrar su disponibilidad de forma manual. Si no desea compartir  
+ubicación, el sistema seguirá recomendando por asignatura y horario. Esta decisión mejora la  
+tolerancia a fallos y protege la privacidad del usuario.
+5. Atributos de calidad considerados
+Las  decisiones  arquitectónicas  buscan  que  la  aplicación  no  solo  funcione,  sino  que  pueda  
+mantenerse,  probarse  y  evolucionar.  Los  principales  atributos  de  calidad  considerados  se  
+resumen a continuación.
+Atributo de calidad Decisión arquitectónica relacionada Impacto esperado en el proyecto
+Eficiencia de rendimiento
+API REST ligera, consultas 
+controladas en PostgreSQL y 
+separación de servicios.
+Reducir tiempos de respuesta en 
+búsquedas, registro de tutorías y 
+generación de recomendaciones.
+Mantenibilidad Tres capas, componentes React y 
+patrón Controller-Service-Repository.
+Permitir modificar un módulo sin 
+afectar innecesariamente los demás y 
+facilitar correcciones.
+Seguridad
+HTTPS, autenticación, validaciones 
+del backend y acceso a datos 
+únicamente mediante repositorios.
+Evitar acceso directo a la base de 
+datos y proteger información personal 
+y sesiones de usuario.
+Fiabilidad
+Validaciones de datos, transacciones 
+y alternativas manuales para horario y 
+ubicación.
+Evitar que un fallo en funciones 
+complementarias impida el uso 
+principal del sistema.
+Usabilidad
+React, Tailwind CSS y flujo de 
+búsqueda centrado en materia, 
+horario y cercanía.
+Facilitar que estudiantes sin 
+conocimientos técnicos puedan 
+encontrar y coordinar una tutoría.
+Portabilidad Aplicación web basada en estándares 
+HTTP/HTTPS y navegador.
+Permitir acceso desde distintos 
+sistemas operativos y dispositivos sin 
+instalar una aplicación nativa.
+5.1 Justificación resumida de las tecnologías
+
+--- PAGINA 7 ---
+7
+Tecnología Justificación técnica
+React Permite construir interfaces dinámicas y reutilizar 
+componentes, facilitando el crecimiento del frontend.
+Tailwind CSS
+Agiliza la construcción de una interfaz responsiva y 
+permite mantener estilos consistentes sin depender de 
+componentes visuales rígidos.
+Node.js
+Permite manejar la lógica del servidor con JavaScript y 
+atender solicitudes de una aplicación web de forma 
+eficiente.
+Express Facilita la creación y organización de rutas, 
+middleware y servicios REST sobre Node.js.
+PostgreSQL
+Ofrece un modelo relacional sólido para manejar las 
+relaciones entre usuarios, materias, tutorías, horarios y 
+sesiones.
+API REST / JSON
+Mantiene desacopladas la interfaz y la lógica del 
+servidor, permitiendo reutilizar los servicios desde 
+otros clientes en el futuro.
+6. Conclusiones
+1. La arquitectura cliente-servidor de tres capas responde al alcance del proyecto porque  
+separa  la  presentación,  las  reglas  de  negocio  y  los  datos  sin  introducir  una  complejidad 
+innecesaria para una primera versión académica.
+2.  La  combinación  de  React,  Tailwind  CSS,  Node.js,  Express  y  PostgreSQL  permite  
+implementar los requisitos establecidos utilizando tecnologías adecuadas para una aplicación  
+web modular y con las que existe experiencia previa de desarrollo.
+3.  El  patrón  Controller-Service-Repository  y  la  organización  por  componentes  permiten  
+desarrollar la aplicación por incrementos durante las 16 semanas, facilitando las pruebas y el  
+mantenimiento de cada módulo.
+4. La recomendación por asignatura, disponibilidad y cercanía, junto con el procesamiento del  
+horario académico en PDF, se integra como parte de la lógica del sistema sin comprometer su  
+funcionamiento cuando estas funciones complementarias no estén disponibles.
+5. El diseño propuesto deja una base preparada para futuras ampliaciones, como reputación de  
+tutores, seguimiento del progreso, pagos o una aplicación móvil, sin que estas funciones  
+formen parte del alcance actual.
